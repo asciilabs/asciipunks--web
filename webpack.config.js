@@ -22,6 +22,21 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.module\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: true } },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: false } },
+        ],
+        exclude: /\.module\.css$/,
+      },
     ],
   },
   resolve: {
