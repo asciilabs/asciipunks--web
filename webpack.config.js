@@ -28,7 +28,12 @@ module.exports = {
         test: /\.module\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { modules: true } },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
         ],
       },
       {
@@ -38,6 +43,18 @@ module.exports = {
           { loader: 'css-loader', options: { modules: false } },
         ],
         exclude: /\.module\.css$/,
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
     ],
   },

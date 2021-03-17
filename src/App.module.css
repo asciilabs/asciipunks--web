@@ -1,3 +1,8 @@
-.app {
+.title {
   background: red;
+  font-family: 'Game Over', sans-serif;
+}
+
+.body {
+  font-family: 'Space Grotesk', sans-serif;
 }
