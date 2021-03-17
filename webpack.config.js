@@ -1,4 +1,5 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
@@ -10,6 +11,7 @@ module.exports = {
     contentBase: './dist',
     publicPath: '/build/',
   },
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -25,14 +27,14 @@ module.exports = {
       {
         test: /\.module\.css$/,
         use: [
-          { loader: 'style-loader' },
+          MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { modules: true } },
         ],
       },
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { modules: false } },
         ],
         exclude: /\.module\.css$/,
