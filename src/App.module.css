@@ -1,8 +1,33 @@
+:root {
+  --mandarin: #ed7e4b;
+  --mint: #E4F1EC;
+  --violet: #453D52;
+  --corn: #F2E86D;
+  --superiority: #669BBC;
+}
+
 .title {
-  background: red;
+  color: white;
+  display: flex;
   font-family: 'Game Over', sans-serif;
+  font-size: 6em;
+  justify-content: center;
+  margin: 40px auto;
+  text-shadow: 4px 6px var(--superiority);
 }
 
 .body {
+  background-color: var(--mint);
+  border-radius: 2px;
+  box-shadow: 4px 5px var(--mandarin);
   font-family: 'Space Grotesk', sans-serif;
+  width: 73vw;
+  margin: 0 auto;
+  padding: 2em 3em;
+}
+
+.background {
+  background-color: var(--violet);
+  min-height: 100vh;
+  overflow: auto;
 }
