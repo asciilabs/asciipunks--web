@@ -32,7 +32,6 @@
 .background {
   background-color: var(--violet);
   min-height: 100vh;
-  overflow: auto;
 }
 
 .stars,
