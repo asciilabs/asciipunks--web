@@ -7,6 +7,9 @@ import './index.css'
 
 const App = () => (
   <div className={s.background}>
+    <div className={s.stars}></div>
+    <div className={s.stars2}></div>
+    <div className={s.stars3}></div>
     <div className={s.title}>ASCII PUNKS</div>
     <div className={s.body}>Some badass punks doin' badass stuff</div>
   </div>
