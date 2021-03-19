@@ -13,6 +13,7 @@
   font-size: 6em;
   justify-content: center;
   margin: 40px auto;
+  position: relative;
   text-shadow: 4px 6px var(--superiority), 6px 8px var(--corn);
 }
 
@@ -21,15 +22,26 @@
   border-radius: 2px;
   box-shadow: 4px 5px var(--mandarin);
   font-family: 'Space Grotesk', sans-serif;
-  width: 73vw;
   margin: 0 auto;
   padding: 2em 3em;
+  position: relative;
+  width: 73vw;
+  z-index: 10;
 }
 
 .background {
   background-color: var(--violet);
   min-height: 100vh;
   overflow: auto;
+}
+
+.stars,
+.stars::after,
+.stars2,
+.stars2::after,
+.stars3,
+.stars3::after {
+  z-index: 1;
 }
 
 .stars {
