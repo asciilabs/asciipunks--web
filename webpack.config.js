@@ -10,6 +10,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     publicPath: '/build/',
+    historyApiFallback: true,
   },
   plugins: [new MiniCssExtractPlugin()],
   module: {

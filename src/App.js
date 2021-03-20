@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 import Web3 from 'web3/dist/web3.min.js'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ContractRegisterer, {
   ContractContext,
   ContractProvider,
@@ -20,18 +21,27 @@ const web3 = new Web3(window.ethereum)
 
 const App = () => {
   return (
-    <MetamaskProvider>
-      <ContractProvider>
-        <ContractRegisterer web3={web3} />
-        <Navigation />
-        <div className={s.background}>
-          <Stars />
-          <Title />
-          <Intro />
-          <TokensContainer />
-        </div>
-      </ContractProvider>
-    </MetamaskProvider>
+    <Router>
+      <MetamaskProvider>
+        <ContractProvider>
+          <ContractRegisterer web3={web3} />
+          <Navigation />
+          <div className={s.background}>
+            <Stars />
+            <Title />
+            <Switch>
+              <Route path="/about">
+                About
+              </Route>
+              <Route path="/">
+                <Intro />
+                <TokensContainer />
+              </Route>
+            </Switch>
+          </div>
+        </ContractProvider>
+      </MetamaskProvider>
+    </Router>
   )
 }
 
