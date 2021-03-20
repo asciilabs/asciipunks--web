@@ -23,14 +23,14 @@ const Showcase = () => {
     })
   }, [contract])
 
-  const sortedTokens = useMemo(() => sortBy('id', tokens), tokens)
+  const sortedTokens = useMemo(() => sortBy('id', tokens), [tokens])
 
   if (tokens.length < tokenIds) return null
 
   return (
     <Card className={s.showcase}>
       {sortedTokens.map(({ token, id }) => (
-        <Token token={token} id={id} />
+        <Token token={token} id={id} key={id} />
       ))}
     </Card>
   )

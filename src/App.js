@@ -33,7 +33,7 @@ const App = () => {
         ) : (
           <LinkWalletButton
             onClick={() => {
-              Web3.givenProvider.enable()
+              window.ethereum.request({ method: 'eth_requestAccounts' })
             }}
           />
         )}
