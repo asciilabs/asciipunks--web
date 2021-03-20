@@ -1,0 +1,22 @@
+.button {
+  background: var(--mint);
+  border: none;
+  box-shadow: 4px 5px var(--superiority);
+  position: relative;
+  transition: 200ms ease box-shadow, 200ms ease transform;
+}
+
+.button:hover {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.small {
+  padding: 8px;
+  font-size: 0.8em;
+}
+
+.large {
+  padding: 16px;
+  font-size: 1.0em;
+}

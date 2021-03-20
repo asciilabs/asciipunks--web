@@ -24,7 +24,7 @@ const App = () => {
         <Stars />
         <Title />
         <Intro />
-        <TokensContainer />}
+        <TokensContainer />
       </div>
     </ContractProvider>
   )
