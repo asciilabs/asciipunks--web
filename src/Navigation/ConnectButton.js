@@ -14,7 +14,7 @@ const ConnectButton = () => {
         window.reload(true)
       }}
     >
-      {window.ethereum.isConnected() ? '✓ Connected' : 'Connect'}
+      {window.ethereum?.isConnected() ? '✓ Connected' : 'Connect'}
     </Button>
   )
 }
