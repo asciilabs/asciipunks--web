@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 import Web3 from 'web3/dist/web3.min.js'
-import ContractRegisterer, { ContractContext, ContractProvider } from '@components/ContractRegisterer'
+import ContractRegisterer, {
+  ContractContext,
+  ContractProvider,
+} from '@components/ContractRegisterer'
 import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
@@ -21,8 +24,7 @@ const App = () => {
         <Stars />
         <Title />
         <Intro />
-        <TokensContainer />
-        }
+        <TokensContainer />}
       </div>
     </ContractProvider>
   )
