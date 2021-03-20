@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, useMemo } from 'react'
 import sortBy from 'lodash/fp/sortBy'
 import Card from '@components/Card'
 import formatURI from '@utils/formatURI'
-import { ContractContext } from '../ContractRegisterer'
+import { ContractContext } from '@components/ContractRegisterer'
 import Token from './Token'
 import s from './Showcase.module.css'
 

@@ -26,6 +26,16 @@ const ContractRegisterer = ({ web3 }) => {
   return null
 }
 
+const ContractProvider = ({ children }) => {
+  const [contract, setContract] = useState()
+
+  return (
+    <ContractContext.Provider value={{ contract, setContract }}>
+      {children}
+    </ContractContext.Provider>
+  )
+}
+
 export default ContractRegisterer
 
-export { ContractContext }
+export { ContractContext, ContractProvider }
