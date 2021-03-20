@@ -9,6 +9,12 @@
   z-index: 100000;
 }
 
+@media only screen and (max-width: 720px) {
+  .navigation {
+    position: absolute;
+  }
+}
+
 .button {
   border: 1px solid transparent;
   flex-grow: 0;

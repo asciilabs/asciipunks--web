@@ -3,3 +3,9 @@
   min-height: 100vh;
   padding-bottom: 56px;
 }
+
+@media only screen and (max-width: 1280px) {
+  .background {
+    padding-top: 24px;
+  }
+}
