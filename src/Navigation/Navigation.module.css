@@ -1,19 +1,27 @@
 .navigation {
   align-items: center;
-  background: var(--violet);
   display: flex;
-  height: 48px;
+  height: 56px;
   justify-content: space-between;
-  padding: 16px 32px 0;
-  position: absolute;
+  padding: 0 32px 0;
+  position: fixed;
   width: 100%;
+  z-index: 100000;
 }
 
 .button {
+  border: 1px solid transparent;
   flex-grow: 0;
   height: auto;
+  margin-top: -8px;
   position: relative;
   z-index: 1;
+  transition: 200ms ease transform, 200ms ease box-shadow, 200ms ease border;
+}
+
+.button:hover {
+  border: 1px solid var(--superiority);
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 15%);
 }
 
 .button + .button {
