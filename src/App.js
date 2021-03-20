@@ -5,6 +5,7 @@ import ContractRegisterer, { ContractContext } from './ContractRegisterer'
 import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
+import Showcase from './Showcase'
 import s from './App.module.css'
 import './fonts.css'
 import './reset.css'
@@ -27,6 +28,7 @@ const App = () => {
         <Stars />
         <Title />
         <Intro />
+        <Showcase />
       </div>
     </ContractContext.Provider>
   )

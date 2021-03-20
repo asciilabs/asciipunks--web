@@ -1,0 +1,16 @@
+.tokenContainer {
+  margin: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--grey);
+  box-shadow: 4px 5px var(--superiority);
+  padding: 24px;
+}
+
+.token {
+  font-size: 38.2%;
+  font-family: monospace;
+}
+
+.tokenId {
+  padding: 16px 16px 0;
+}

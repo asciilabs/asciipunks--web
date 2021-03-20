@@ -1,4 +1,5 @@
 .background {
   background-color: var(--violet);
   min-height: 100vh;
+  padding-bottom: 56px;
 }

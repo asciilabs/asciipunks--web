@@ -3,8 +3,9 @@
   --mint: #e4f1ec;
   --violet: #453d52;
   --corn: #f2e86d;
+  --grey: #d4d4d4;
   --superiority: #669bbc;
-  --content-width: 73vw;
+  --content-width: 83vw;
 }
 
 body {
@@ -15,4 +16,8 @@ body {
   body {
     font-size: 14px;
   }
+}
+
+* {
+  box-sizing: border-box;
 }

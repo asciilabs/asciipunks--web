@@ -1,0 +1,8 @@
+.showcase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 56px auto 0;
+  width: var(--content-width);
+}
