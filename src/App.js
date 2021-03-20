@@ -5,6 +5,8 @@ import ContractRegisterer, {
   ContractContext,
   ContractProvider,
 } from '@components/ContractRegisterer'
+import { MetamaskProvider } from '@components/MetamaskContext'
+import Navigation from './Navigation'
 import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
@@ -18,15 +20,18 @@ const web3 = new Web3(window.ethereum)
 
 const App = () => {
   return (
-    <ContractProvider>
-      <ContractRegisterer web3={web3} />
-      <div className={s.background}>
-        <Stars />
-        <Title />
-        <Intro />
-        <TokensContainer />
-      </div>
-    </ContractProvider>
+    <MetamaskProvider>
+      <ContractProvider>
+        <ContractRegisterer web3={web3} />
+        <Navigation />
+        <div className={s.background}>
+          <Stars />
+          <Title />
+          <Intro />
+          <TokensContainer />
+        </div>
+      </ContractProvider>
+    </MetamaskProvider>
   )
 }
 

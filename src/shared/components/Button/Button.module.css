@@ -2,7 +2,10 @@
   background: var(--mint);
   border: none;
   box-shadow: 4px 5px var(--superiority);
+  font-family: 'Game Over';
+  cursor: pointer;
   position: relative;
+  text-transform: uppercase;
   transition: 200ms ease box-shadow, 200ms ease transform;
 }
 
@@ -22,5 +25,5 @@
 
 .large {
   padding: 16px;
-  font-size: 1.0em;
+  font-size: 1em;
 }
