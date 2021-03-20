@@ -25,7 +25,7 @@ const Showcase = () => {
 
   const sortedTokens = useMemo(() => sortBy('id', tokens), [tokens])
 
-  if (tokens.length < tokenIds) return null
+  if (sortedTokens.length < tokenIds.length) return null
 
   return (
     <Card className={s.showcase}>

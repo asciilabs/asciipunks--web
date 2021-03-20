@@ -28,7 +28,7 @@ const App = () => {
         <Stars />
         <Title />
         <Intro />
-        {Web3.givenProvider ? (
+        {window.ethereum?.isConnected() ? (
           <Showcase />
         ) : (
           <LinkWalletButton
