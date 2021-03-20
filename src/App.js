@@ -14,9 +14,10 @@ import './index.css'
 
 const App = () => {
   const [web3, setWeb3] = useState()
+  const [_, setForceUpdate] = useState(0)
   const [contract, setContract] = useState()
   useEffect(() => {
-    setWeb3(new Web3(Web3.givenProvider))
+    setWeb3(new Web3(window.ethereum))
   }, [])
 
   if (!web3) return null
@@ -32,8 +33,10 @@ const App = () => {
           <Showcase />
         ) : (
           <LinkWalletButton
-            onClick={() => {
-              window.ethereum.request({ method: 'eth_requestAccounts' })
+            onClick={async () => {
+              await window.ethereum.request({ method: 'eth_requestAccounts' })
+              // this is to trigger a rerender
+              setForceUpdate(x => x + 1)
             }}
           />
         )}
