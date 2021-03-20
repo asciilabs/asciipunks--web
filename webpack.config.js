@@ -61,6 +61,8 @@ module.exports = {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@components': path.resolve(__dirname, 'src/shared/components'),
+      '@utils': path.resolve(__dirname, 'src/shared/utils'),
     },
   },
 }

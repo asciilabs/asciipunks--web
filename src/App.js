@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
+import Title from './Title'
+import Intro from './Intro'
+import Stars from './Stars'
 import s from './App.module.css'
 import './fonts.css'
 import './reset.css'
@@ -7,11 +10,9 @@ import './index.css'
 
 const App = () => (
   <div className={s.background}>
-    <div className={s.stars}></div>
-    <div className={s.stars2}></div>
-    <div className={s.stars3}></div>
-    <div className={s.title}>ASCII PUNKS</div>
-    <div className={s.body}>Some badass punks doin' badass stuff</div>
+    <Stars />
+    <Title />
+    <Intro />
   </div>
 )
 

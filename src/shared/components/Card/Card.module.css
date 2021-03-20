@@ -1,0 +1,9 @@
+.card {
+  background-color: var(--mint);
+  border-radius: 2px;
+  box-shadow: 4px 5px var(--mandarin);
+  font-family: 'Space Grotesk', sans-serif;
+  position: relative;
+  z-index: 10;
+}
+

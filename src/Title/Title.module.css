@@ -1,0 +1,11 @@
+.title {
+  color: white;
+  display: flex;
+  font-family: 'Game Over', sans-serif;
+  font-size: 6em;
+  justify-content: center;
+  margin: 40px auto;
+  position: relative;
+  text-shadow: 4px 6px var(--superiority), 6px 8px var(--corn);
+}
+
