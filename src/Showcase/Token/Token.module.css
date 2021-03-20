@@ -9,6 +9,10 @@
 .token {
   font-size: 38.2%;
   font-family: monospace;
+  height: auto;
+  letter-spacing: 0.5px;
+  line-height: 0.9;
+  margin-bottom: 0;
 }
 
 .tokenId {
