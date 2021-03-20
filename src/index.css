@@ -12,12 +12,6 @@ body {
   font-size: 18px;
 }
 
-@media only screen and (max-width: 720px) {
-  body {
-    font-size: 24px;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
