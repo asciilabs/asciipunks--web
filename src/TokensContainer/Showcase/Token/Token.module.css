@@ -2,7 +2,7 @@
   background: white;
   border-radius: 2px;
   border: 1px solid var(--grey);
-  box-shadow: 4px 5px var(--superiority);
+  box-shadow: 2px 2px var(--superiority);
   margin: 24px;
   padding: 24px;
 }
