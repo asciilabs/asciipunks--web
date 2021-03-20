@@ -3,3 +3,6 @@
   width: var(--content-width);
 }
 
+.p + .p {
+  margin-top: 16px;
+}
