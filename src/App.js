@@ -5,6 +5,7 @@ import ContractRegisterer, { ContractContext } from './ContractRegisterer'
 import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
+import LinkWalletButton from './LinkWalletButton'
 import Showcase from './Showcase'
 import s from './App.module.css'
 import './fonts.css'
@@ -16,7 +17,6 @@ const App = () => {
   const [contract, setContract] = useState()
   useEffect(() => {
     setWeb3(new Web3(Web3.givenProvider))
-    Web3.givenProvider.enable()
   }, [])
 
   if (!web3) return null
@@ -28,7 +28,16 @@ const App = () => {
         <Stars />
         <Title />
         <Intro />
-        <Showcase />
+        {Web3.givenProvider ? (
+          <Showcase />
+        ) : (
+          <LinkWalletButton
+            onClick={() => {
+              Web3.givenProvider.enable()
+            }}
+          />
+        )}
+        }
       </div>
     </ContractContext.Provider>
   )

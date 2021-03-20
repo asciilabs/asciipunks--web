@@ -1,0 +1,8 @@
+.linkWallet {
+  cursor: pointer !important;
+  display: block !important;
+  font-family: 'Game Over';
+  margin: 48px auto !important;
+  width: var(--content-width);
+}
+
