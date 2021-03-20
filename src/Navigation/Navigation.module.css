@@ -13,7 +13,7 @@
   border: 1px solid transparent;
   flex-grow: 0;
   height: auto;
-  margin-top: -8px;
+  margin-top: 8px;
   position: relative;
   z-index: 1;
   transition: 200ms ease transform, 200ms ease box-shadow, 200ms ease border;
