@@ -6,6 +6,7 @@
   justify-content: center;
   margin: 40px auto;
   position: relative;
+  text-decoration: none;
   text-shadow: 4px 6px var(--superiority), 6px 8px var(--corn);
 }
 
