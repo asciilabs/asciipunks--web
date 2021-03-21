@@ -15,7 +15,7 @@ const ContractRegisterer = ({ web3 }) => {
             type: 'function',
             name: 'tokenURI',
             inputs: [{ name: '_tokenId', type: 'uint256' }],
-            outputs: [{ name: 'autoglyph', type: 'string' }],
+            outputs: [{ name: '', type: 'string' }],
           },
         ],
         contractAddress
