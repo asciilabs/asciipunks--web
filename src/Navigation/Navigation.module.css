@@ -20,6 +20,7 @@
   border: 1px solid transparent;
   flex-grow: 0;
   height: auto;
+  line-height: 1em;
   margin-top: 8px;
   position: relative;
   z-index: 1;

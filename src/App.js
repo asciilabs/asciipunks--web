@@ -12,6 +12,7 @@ import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
 import TokensContainer from './TokensContainer'
+import About from './About'
 import s from './App.module.css'
 import './fonts.css'
 import './reset.css'
@@ -31,9 +32,9 @@ const App = () => {
             <Title />
             <Switch>
               <Route path="/about">
-                About
+                <About />
               </Route>
-              <Route path="/">
+              <Route path="/" exact>
                 <Intro />
                 <TokensContainer />
               </Route>
