@@ -12,6 +12,7 @@ import Title from './Title'
 import Intro from './Intro'
 import Stars from './Stars'
 import TokensContainer from './TokensContainer'
+import ErrorPage from './ErrorPage'
 import About from './About'
 import s from './App.module.css'
 import './fonts.css'
@@ -37,6 +38,9 @@ const App = () => {
               <Route path="/" exact>
                 <Intro />
                 <TokensContainer />
+              </Route>
+              <Route path="/">
+                <ErrorPage />
               </Route>
             </Switch>
           </div>

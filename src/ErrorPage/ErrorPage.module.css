@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+}
+
+.card {
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--content-width);
+}
+
+.messageTitle {
+  align-items: center;
+  display: flex;
+  font-family: 'Game Over';
+  font-size: 4em;
+  justify-content: center;
+  margin-left: 8px;
+  text-shadow: 4px 6px var(--corn), 6px 8px var(--superiority);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.messageBody {
+  margin-top: 16px;
+  text-align: center;
+}
