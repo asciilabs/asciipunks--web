@@ -6,3 +6,7 @@
   margin: 56px auto 0;
   width: var(--content-width);
 }
+
+.underline {
+  text-decoration: line-through;
+}

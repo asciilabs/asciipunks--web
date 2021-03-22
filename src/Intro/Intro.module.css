@@ -6,3 +6,9 @@
 .p + .p {
   margin-top: 16px;
 }
+
+.h2 {
+  font-style: bold;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
