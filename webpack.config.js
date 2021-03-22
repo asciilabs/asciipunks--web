@@ -64,6 +64,9 @@ module.exports = {
       'react-dom': '@hot-loader/react-dom',
       '@components': path.resolve(__dirname, 'src/shared/components'),
       '@utils': path.resolve(__dirname, 'src/shared/utils'),
+      '@contexts': path.resolve(__dirname, 'src/shared/contexts'),
+      '@hooks': path.resolve(__dirname, 'src/shared/hooks'),
+      '@abis': path.resolve(__dirname, 'src/shared/abis'),
     },
   },
 }

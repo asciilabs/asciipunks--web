@@ -6,12 +6,14 @@ import s from './Navigation.module.css'
 const ConnectButton = () => {
   const connectToMetamask = useMetamask()
 
+  console.log(window.ethereum);
+  debugger;
   return (
     <Button
       className={s.button}
       onClick={async () => {
         await connectToMetamask()
-        window.reload(true)
+        // location.reload(true)
       }}
     >
       {window.ethereum?.isConnected() ? '✓ Connected' : 'Connect'}

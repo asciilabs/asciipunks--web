@@ -23,12 +23,8 @@ const Showcase = () => {
     //   const token = formatURI(await contract.methods.tokenURI(id).call())
     //   setTokens((tokens) => [...tokens, { token, id }])
     // })
-    const totalSupply = await contract.methods.totalSupply().call()
-    console.log(totalSupply);
-    const tokenLimit = await contract.methods.TOKEN_LIMIT().call()
-    console.log(tokenLimit);
-    setTotalSupply(totalSupply);
-    setTokenLimit(tokenLimit);
+    setTotalSupply(await contract.methods.totalSupply().call())
+    setTokenLimit(await contract.methods.TOKEN_LIMIT().call())
   }, [contract])
 
   const sortedTokens = useMemo(() => sortBy('id', tokens), [tokens])
