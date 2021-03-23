@@ -3,7 +3,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import { ethers } from "ethers";
 import React, { useCallback, useEffect, useState } from "react";
 import Web3Modal from "web3modal";
-import Context from "./context";
+import Context from "./Context";
 
 const Provider = ({ children }) => {
   const [web3Modal, setWeb3Modal] = useState(undefined);
