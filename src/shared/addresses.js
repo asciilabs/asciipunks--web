@@ -1,5 +1,5 @@
 const addresses = {
-  asciiPunks: "0x3c24A5DF4F69199962b163CB5762be1E8367CbEb",
+  asciiPunksRinkeby: "0xd19c94c196C7acf5a33f077456EE5AA98406d60F",
 };
 
 export default addresses;
