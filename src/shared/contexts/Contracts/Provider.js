@@ -1,9 +1,9 @@
 import abis from '@abis'
-import addresses from '../../addresses'
 import useWeb3 from '@hooks/useWeb3'
 import { Contract } from 'ethers'
 import React, { useCallback, useEffect, useState } from 'react'
 import Context from './Context'
+import addresses from '../../addresses'
 
 const Provider = ({ children }) => {
   // const { setLoadingMessage } = useLoading();
@@ -43,8 +43,6 @@ const Provider = ({ children }) => {
 
     const newTotalSupply = (await punks.totalSupply()).toNumber()
     const newTokenLimit = (await punks.TOKEN_LIMIT()).toNumber()
-    console.log(newTotalSupply)
-    console.log(newTokenLimit)
 
     return { totalSupply: newTotalSupply, tokenLimit: newTokenLimit }
   }, [punks])
@@ -58,7 +56,28 @@ const Provider = ({ children }) => {
       setTokenLimit(tokenLimit)
     }
     fetchTokens()
-  }, [setNfts, punksForUser])
+  }, [setTotalSupply, setTokenLimit, punksForUser, setNfts, totalPunks])
+
+  const createPunk = useCallback(async () => {
+    const seed = Math.random() * 1000000000
+    await punks.createPunk(parseInt(seed), {
+      value: '100000000000000000',
+      from: walletAddress,
+    })
+
+    const { totalSupply, tokenLimit } = await totalPunks()
+    setTotalSupply(totalSupply)
+    setTokenLimit(tokenLimit)
+    setNfts(await punksForUser())
+  }, [
+    punks,
+    walletAddress,
+    totalPunks,
+    setTotalSupply,
+    setTokenLimit,
+    setNfts,
+    punksForUser,
+  ])
 
   return (
     <Context.Provider
@@ -66,6 +85,7 @@ const Provider = ({ children }) => {
         nfts,
         totalSupply,
         tokenLimit,
+        createPunk,
       }}
     >
       {children}
