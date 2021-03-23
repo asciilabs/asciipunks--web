@@ -16,8 +16,6 @@ import './fonts.css'
 import './reset.css'
 import './index.css'
 
-const web3 = new Web3(window.ethereum)
-
 const App = () => {
   return (
     <Router>

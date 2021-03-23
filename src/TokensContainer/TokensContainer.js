@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import useMetamask from '@utils/useMetamask'
 import LinkWalletButton from './LinkWalletButton'
+import useWeb3 from '@hooks/useWeb3'
 import Showcase from './Showcase'
 
 const TokensContainer = () => {
-  const connectToMetamask = useMetamask()
+  const { connected } = useWeb3()
 
-  return window.ethereum?.isConnected() ? (
+  return connected ? (
     <Showcase />
   ) : (
     <LinkWalletButton
       onClick={async () => {
-        connectToMetamask()
+        // connectToMetamask()
       }}
     />
   )

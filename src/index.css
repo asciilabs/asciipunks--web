@@ -5,13 +5,19 @@
   --grey: #d4d4d4;
   --superiority: #669bbc;
   --content-width: 83vw;
-  --baby-powder: #FCFEF6;
+  --baby-powder: #fcfef6;
 }
 
 body {
   font-size: 18px;
+  font-family: 'Space Grotesk';
 }
 
 * {
   box-sizing: border-box;
+}
+
+#WEB3_CONNECT_MODAL_ID {
+  position: relative;
+  z-index: 10;
 }

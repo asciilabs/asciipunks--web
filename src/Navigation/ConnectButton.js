@@ -1,22 +1,17 @@
 import React from 'react'
+import useWeb3 from '@hooks/useWeb3'
 import Button from '@components/Button'
-import useMetamask from '@utils/useMetamask'
 import s from './Navigation.module.css'
 
 const ConnectButton = () => {
-  const connectToMetamask = useMetamask()
+  const { handleConnect, connected } = useWeb3()
 
-  console.log(window.ethereum);
-  debugger;
   return (
     <Button
       className={s.button}
-      onClick={async () => {
-        await connectToMetamask()
-        // location.reload(true)
-      }}
+      onClick={handleConnect}
     >
-      {window.ethereum?.isConnected() ? '✓ Connected' : 'Connect'}
+      {connected ? '✓ Connected' : 'Connect'}
     </Button>
   )
 }
