@@ -10,7 +10,7 @@
 
 body {
   font-size: 18px;
-  font-family: 'Space Grotesk';
+  font-family: 'Fira Mono', monospace;
 }
 
 * {

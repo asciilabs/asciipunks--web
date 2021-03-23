@@ -39,8 +39,7 @@ const Provider = ({ children }) => {
             walletconnect: {
               package: WalletConnectProvider,
               options: {
-                //TODO put in conf
-                infuraId: 'e63a8b99a7c44e6e892d54c203bd98b7',
+                infuraId: process.env.INFURA_ID,
               },
             },
           }

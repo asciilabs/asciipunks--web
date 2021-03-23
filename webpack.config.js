@@ -1,4 +1,5 @@
 const path = require('path')
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
     publicPath: '/build/',
     historyApiFallback: true,
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin(), new Dotenv()],
   module: {
     rules: [
       {
@@ -62,6 +63,7 @@ module.exports = {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@shared': path.resolve(__dirname, 'src/shared'),
       '@components': path.resolve(__dirname, 'src/shared/components'),
       '@utils': path.resolve(__dirname, 'src/shared/utils'),
       '@contexts': path.resolve(__dirname, 'src/shared/contexts'),

@@ -1,14 +1,18 @@
-.intro {
+.card {
   margin: 0 auto;
   width: var(--content-width);
 }
 
+.card + .card {
+  margin-top: 24px;
+}
+
 .p + .p {
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .h2 {
-  font-style: bold;
+  font-weight: 700;
   font-size: 24px;
   padding-bottom: 16px;
 }

@@ -11,7 +11,7 @@ const Provider = ({ children }) => {
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
   const [punks, setPunks] = useState(
-    new Contract(addresses.asciiPunksRinkeby, abis.asciiPunks)
+    new Contract(addresses.asciiPunks, abis.asciiPunks)
   )
   const { wallet, walletAddress } = useWeb3()
 
