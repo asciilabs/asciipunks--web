@@ -1,5 +1,5 @@
 const path = require('path')
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     publicPath: '/build/',
     historyApiFallback: true,
   },
-  plugins: [new MiniCssExtractPlugin(), new Dotenv()],
+  plugins: [new MiniCssExtractPlugin(), new Dotenv({ systemvars: true })],
   module: {
     rules: [
       {
