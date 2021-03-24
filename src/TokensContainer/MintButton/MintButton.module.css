@@ -1,5 +1,9 @@
 .mintButton {
   display: block;
   margin: 48px auto;
-  width: var(--content-width);
+  height: 64px;
+  width: 40%;
+  color: var(--violet);
+  background-color: var(--green);
+  border-color: var(--green);
 }
