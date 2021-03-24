@@ -17,6 +17,7 @@ body {
 @media (max-width: 1280px) {
   body {
     font-size: 14px;
+    line-height: 1.3em;
   }
 }
 
