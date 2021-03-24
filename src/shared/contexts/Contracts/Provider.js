@@ -21,10 +21,6 @@ const Provider = ({ children }) => {
     }
   }, [wallet, setPunks, punks])
 
-  // const createPunk = useCallback(async () => {
-  //   if (!walletAddress || !punks.signer ) { return };
-  // }, [punks, walletAddress]);
-
   const punksForUser = useCallback(async () => {
     if (!walletAddress || !punks.signer) return []
     const userPunks = []
@@ -59,26 +55,32 @@ const Provider = ({ children }) => {
     fetchTokens()
   }, [setTotalSupply, setTokenLimit, punksForUser, setNfts, totalPunks])
 
-  const createPunk = useCallback(async () => {
-    const seed = Math.random() * 1000000000
-    await punks.createPunk(parseInt(seed), {
-      value: '100000000000000000',
-      from: walletAddress,
-    })
+  const createPunk = useCallback(
+    async (seed) => {
+      await punks.createPunk(
+        parseInt(seed),
+        {
+          value: '100000000000000000',
+          from: walletAddress,
+        },
+      )
 
-    const { totalSupply, tokenLimit } = await totalPunks()
-    setTotalSupply(totalSupply)
-    setTokenLimit(tokenLimit)
-    setNfts(await punksForUser())
-  }, [
-    punks,
-    walletAddress,
-    totalPunks,
-    setTotalSupply,
-    setTokenLimit,
-    setNfts,
-    punksForUser,
-  ])
+      const { totalSupply, tokenLimit } = await totalPunks()
+      setTotalSupply(totalSupply)
+      setTokenLimit(tokenLimit)
+      setNfts(await punksForUser())
+      console.log(totalSupply)
+    },
+    [
+      punks,
+      walletAddress,
+      totalPunks,
+      setTotalSupply,
+      setTokenLimit,
+      setNfts,
+      punksForUser,
+    ]
+  )
 
   return (
     <Context.Provider

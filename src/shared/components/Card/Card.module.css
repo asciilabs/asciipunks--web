@@ -7,3 +7,9 @@
   z-index: 10;
 }
 
+@media only screen and (max-width: 720px) {
+  .card {
+    padding: 1em 1.5em;
+  }
+}
+

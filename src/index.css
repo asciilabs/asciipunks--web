@@ -1,12 +1,12 @@
 :root {
-  --mandarin: #ed7e4b;
-  --violet: #453d52;
+  --baby-powder: #fcfef6;
+  --content-width: 83vw;
   --corn: #f2e86d;
   --grey: #d4d4d4;
   --green: #3BF0A7;
+  --mandarin: #ed7e4b;
   --superiority: #669bbc;
-  --content-width: 83vw;
-  --baby-powder: #fcfef6;
+  --violet: #453d52;
 }
 
 body {
@@ -21,4 +21,13 @@ body {
 #WEB3_CONNECT_MODAL_ID {
   position: relative;
   z-index: 10;
+}
+
+.ReactModalPortal {
+  position: relative;
+  z-index: 1000;
+}
+
+.ReactModalPortal > div {
+  background-color: rgba(0, 0, 0, 0.50) !important;
 }
