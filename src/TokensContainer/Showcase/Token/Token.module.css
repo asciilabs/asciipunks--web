@@ -4,17 +4,17 @@
   border: 1px solid var(--grey);
   box-shadow: 2px 2px var(--superiority);
   margin: 24px;
-  padding: 0 24px 24px;
 }
 
 .token {
-  font-size: 33.2%;
+  background: black;
+  color: white;
   font-family: monospace;
   height: auto;
   letter-spacing: 0.5px;
   line-height: 0.9;
-  margin-top: 16px;
   overflow: hidden;
+  padding: 24px;
 }
 
 .tokenId {
@@ -23,6 +23,5 @@
   display: flex;
   height: 48px;
   justify-content: center;
-  margin: 0 -24px;
   padding: 0 24px;
 }

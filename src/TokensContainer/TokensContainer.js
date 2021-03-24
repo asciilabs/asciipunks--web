@@ -13,11 +13,7 @@ const TokensContainer = () => {
       <MintButton />
     </>
   ) : (
-    <LinkWalletButton
-      onClick={async () => {
-        // connectToMetamask()
-      }}
-    />
+    <LinkWalletButton />
   )
 }
 

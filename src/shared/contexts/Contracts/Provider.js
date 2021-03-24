@@ -31,9 +31,10 @@ const Provider = ({ children }) => {
 
     const balance = (await punks.balanceOf(walletAddress)).toNumber()
     for (let index = 0; index < balance; index++) {
-      userPunks.push(
-        await punks.tokenOfOwnerByIndex(walletAddress, index).toString()
-      )
+      const id = (
+        await punks.tokenOfOwnerByIndex(walletAddress, index)
+      ).toNumber()
+      userPunks.push({ punk: await punks.draw(id), id })
     }
     return userPunks
   }, [punks, walletAddress])
