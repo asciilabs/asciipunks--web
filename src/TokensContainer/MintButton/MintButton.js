@@ -8,7 +8,7 @@ const MintButton = () => {
 
   return (
     <Button className={s.mintButton} onClick={() => createPunk()}>
-      Mint Punk
+      Mint 1 AsciiPunk for 0.1 ETHER
     </Button>
   )
 }

@@ -1,6 +1,10 @@
 .linkWallet {
   display: block !important;
+  font-size: 24px;
   margin: 48px auto !important;
   width: var(--content-width);
+  background-color: var(--green);
+  border-color: var(--green);
+  color: var(--violet);
 }
 
