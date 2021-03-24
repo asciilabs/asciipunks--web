@@ -16,7 +16,7 @@ const Showcase = () => {
       minted. Here are your punks:
       <div className={s.showcase}>
         {nfts.map(({ punk, id }) => (
-          <Token token={punk} id={id} />
+          <Token token={punk} id={id} key={id} />
         ))}
       </div>
     </Card>
