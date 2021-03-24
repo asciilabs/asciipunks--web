@@ -27,6 +27,10 @@ const Intro = () => (
         an NFT really have, so long as the token itself is not inseprable from the
         art in question?
       </p>
+    </Card>
+
+    <Card className={s.card}>
+      <h2 className={s.h2}>Specs</h2>
       <p className={s.p}>
         To get a little more technical for the folks who are interested, the
         AsciiPunks is an ERC721 compatible smart contract on the ethereum
@@ -46,6 +50,9 @@ const Intro = () => (
         There will only be 2048 of these little punks ever minted, so get yours
         while you can.
       </p>
+    </Card>
+
+    <Card className={s.card}>
       <p className={s.p}>
         AsciiPunks were crafted with love by{' '}
         <a href="https://twitter.com/nassredean" target="_blank">
