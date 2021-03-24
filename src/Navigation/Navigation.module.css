@@ -10,17 +10,19 @@
 }
 
 @media (min-width: 1280px) {
-
   .button + .button {
     margin-left: 24px;
   }
-
 }
 
 @media (max-width: 1280px) {
   .navigation {
     position: absolute;
     padding: 16px 24px 0;
+  }
+
+  .button {
+    font-size: 1.0em;
   }
 
   .button + .button {

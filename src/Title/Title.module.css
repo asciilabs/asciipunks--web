@@ -10,3 +10,9 @@
   text-shadow: 4px 6px var(--superiority), 6px 8px var(--corn);
   width: var(--content-width);
 }
+
+@media (max-width: 1280px) {
+  .title {
+    font-size: 7em;
+  }
+}

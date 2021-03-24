@@ -14,6 +14,12 @@ body {
   font-family: 'Fira Mono', monospace;
 }
 
+@media (max-width: 1280px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
