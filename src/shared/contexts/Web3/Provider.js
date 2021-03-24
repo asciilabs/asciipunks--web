@@ -13,16 +13,20 @@ const Provider = ({ children }) => {
 
   const handleConnect = useCallback(async () => {
     const provider = await web3Modal?.connect()
-    const newWeb3 = new ethers.providers.Web3Provider(provider)
-    const accounts = await newWeb3.listAccounts()
-    setConnected(true)
-    setWalletAddress(accounts[0])
-    setWallet(newWeb3.getSigner())
-    provider.on('accountsChanged', (newAccounts) => {
-      if (Array.isArray(newAccounts) && newAccounts.length) {
-        setWalletAddress(newAccounts[0])
-      }
-    })
+    if (provider) {
+      const newWeb3 = new ethers.providers.Web3Provider(provider)
+      const accounts = await newWeb3.listAccounts()
+      setConnected(true)
+      setWalletAddress(accounts[0])
+      setWallet(newWeb3.getSigner())
+      provider.on('accountsChanged', (newAccounts) => {
+        if (Array.isArray(newAccounts) && newAccounts.length) {
+          setWalletAddress(newAccounts[0])
+        }
+      })
+    } else {
+      await handleDisconnect()
+    }
   }, [setWalletAddress, setWallet, web3Modal, setConnected])
 
   const handleDisconnect = useCallback(async () => {
