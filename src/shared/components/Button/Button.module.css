@@ -18,6 +18,18 @@
   transform: translate(2px, 2px);
 }
 
+.button:disabled {
+  cursor: auto;
+  background: var(--baby-powder);
+  border: none;
+  box-shadow: 4px 5px var(--superiority)
+}
+
+.button:disabled:hover {
+  box-shadow: 4px 5px var(--superiority);
+  transform: none;
+}
+
 .small {
   padding: 8px 8px 6px;
   font-size: 0.8em;

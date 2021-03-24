@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-modal'
 import Button from '@components/Button'
 import { useContracts } from '@hooks'
+import cn from 'classnames'
 import s from './MintButton.module.css'
 
 const customStyles = {
@@ -20,19 +21,23 @@ const customStyles = {
 Modal.setAppElement('#app')
 
 const MintButton = () => {
-  const { createPunk } = useContracts()
+  const { createPunk, saleStarted } = useContracts()
   const [modalOpen, setModalOpen] = useState(false)
   const [seed, setSeed] = useState(0)
 
   return (
     <>
       <Button
-        className={s.mintButton}
+        className={cn(s.largeButton, {
+          [s.mintButton]: saleStarted,
+          [s.salePausedButton]: !saleStarted
+        })}
+        disabled={!saleStarted}
         onClick={() => {
           setModalOpen(true)
         }}
       >
-      Mint 1 AsciiPunk for 0.1 ETHER
+       {saleStarted ? 'Mint 1 AsciiPunk for 0.1 ETHER' : "Sale hasn't started yet! Check back later."}
       </Button>
       <Modal
         isOpen={modalOpen}

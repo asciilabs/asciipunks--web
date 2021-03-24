@@ -1,12 +1,20 @@
-.mintButton {
+.largeButton {
   display: block;
   font-size: 24px;
   margin: 48px auto;
   height: 64px;
   width: var(--content-width);
+  color: var(--violet);
+}
+
+.mintButton {
   background-color: var(--green);
   border-color: var(--green);
-  color: var(--violet);
+}
+
+.salePausedButton {
+  background-color: var(--baby-powder);
+  border-color: var(--baby-powder);
 }
 
 .row {

@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
   const [nfts, setNfts] = useState([])
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
+  const [saleStarted, setSaleStarted] = useState(false)
   const [punks, setPunks] = useState(
     new Contract(addresses.asciiPunks, abis.asciiPunks)
   )
@@ -42,18 +43,35 @@ const Provider = ({ children }) => {
     const newTokenLimit = (await punks.TOKEN_LIMIT()).toNumber()
 
     return { totalSupply: newTotalSupply, tokenLimit: newTokenLimit }
-  }, [punks])
+  }, [punks, walletAddress])
+
+  const getSaleStarted = useCallback(async () => {
+    if (!walletAddress || !punks.signer) return false
+
+    const started = await punks.hasSaleStarted()
+    return started
+  }, [punks, walletAddress])
 
   useEffect(() => {
     async function fetchTokens() {
       setNfts(await punksForUser())
 
       const { totalSupply, tokenLimit } = await totalPunks()
+      const started = await getSaleStarted()
+      setSaleStarted(started)
       setTotalSupply(totalSupply)
       setTokenLimit(tokenLimit)
     }
     fetchTokens()
-  }, [setTotalSupply, setTokenLimit, punksForUser, setNfts, totalPunks])
+  }, [
+    setTotalSupply,
+    setTokenLimit,
+    setSaleStarted,
+    setNfts,
+    punksForUser,
+    totalPunks,
+    getSaleStarted,
+  ])
 
   const createPunk = useCallback(
     async (seed) => {
@@ -69,7 +87,6 @@ const Provider = ({ children }) => {
       setTotalSupply(totalSupply)
       setTokenLimit(tokenLimit)
       setNfts(await punksForUser())
-      console.log(totalSupply)
     },
     [
       punks,
@@ -89,6 +106,7 @@ const Provider = ({ children }) => {
         totalSupply,
         tokenLimit,
         createPunk,
+        saleStarted
       }}
     >
       {children}
