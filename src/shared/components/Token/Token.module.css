@@ -9,10 +9,9 @@
 .token {
   background: black;
   color: white;
-  font-family: monospace;
+  font-family: 'Unimono', monospace;
   height: auto;
-  letter-spacing: 0.5px;
-  line-height: 0.9;
+  line-height: 1.05;
   overflow: hidden;
   padding: 24px;
 }
