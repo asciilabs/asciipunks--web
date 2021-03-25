@@ -21,9 +21,28 @@ const customStyles = {
 Modal.setAppElement('#app')
 
 const MintButton = () => {
-  const { createPunk, saleStarted } = useContracts()
+  const {
+    createPunk,
+    saleStarted,
+    tokenLimit,
+    totalSupply
+  } = useContracts()
   const [modalOpen, setModalOpen] = useState(false)
   const [seed, setSeed] = useState(0)
+
+  const saleEnded = tokenLimit === totalSupply
+
+  let buttonCopy;
+
+  if (saleStarted) {
+     if (!saleEnded) {
+      buttonCopy = 'Mint 1 AsciiPunk for 0.1 ETHER'
+     } else {
+       buttonCopy = 'All AsciiPunks have been sold out!'
+     }
+  } else {
+    buttonCopy = "Sale hasn't started yet! Check back later."
+  }
 
   return (
     <>
@@ -32,12 +51,12 @@ const MintButton = () => {
           [s.mintButton]: saleStarted,
           [s.salePausedButton]: !saleStarted
         })}
-        disabled={!saleStarted}
+        disabled={!saleStarted || saleEnded}
         onClick={() => {
           setModalOpen(true)
         }}
       >
-       {saleStarted ? 'Mint 1 AsciiPunk for 0.1 ETHER' : "Sale hasn't started yet! Check back later."}
+        {buttonCopy} 
       </Button>
       <Modal
         isOpen={modalOpen}
