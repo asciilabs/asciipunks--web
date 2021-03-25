@@ -10,7 +10,6 @@ import Intro from './Intro'
 import Stars from './Stars'
 import TokensContainer from './TokensContainer'
 import ErrorPage from './ErrorPage'
-import About from './About'
 import s from './App.module.css'
 import './fonts.css'
 import './reset.css'
@@ -26,9 +25,6 @@ const App = () => {
             <Stars />
             <Title />
             <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
               <Route path="/" exact>
                 <Intro />
                 <TokensContainer />
