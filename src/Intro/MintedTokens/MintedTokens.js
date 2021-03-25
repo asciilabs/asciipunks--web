@@ -5,6 +5,7 @@ import Card from '@components/Card'
 import Token from '@components/Token'
 import useContracts from '@hooks/useContracts'
 import s from './MintedTokens.module.css'
+import PunkCount from '../../TokensContainer/PunkCount'
 
 const MintedTokens = () => {
   const { fetchTokensById, totalSupply } = useContracts()
@@ -36,7 +37,10 @@ const MintedTokens = () => {
 
   return (
     <Card className={s.card}>
-      <h2 className={s.h2}>Minted AsciiPunks</h2>
+      <div className={s.flex}>
+        <h2 className={s.h2}>Minted AsciiPunks</h2>
+        <PunkCount className={s.punkCount} />
+      </div>
       <div className={s.container}>
         <button
           className={cn('fas fa-arrow-left', s.button, s.leftButton)}

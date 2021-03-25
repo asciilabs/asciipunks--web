@@ -48,7 +48,7 @@ const Intro = () => (
     <Card className={s.card}>
       <h2 className={s.h2}>Pricing</h2>
       <p className={s.p}>
-        AsciiPunks are priced on the following curve:
+        There will be 2048 AsciiPunks minted. They are priced on the following curve:
         <br/>
         <br/>
         > 1 - 256: 0.05 ETH
