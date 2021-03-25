@@ -14,6 +14,7 @@ import s from './App.module.css'
 import './fonts.css'
 import './reset.css'
 import './index.css'
+import './fontawesome/css/all.css'
 
 const App = () => {
   return (

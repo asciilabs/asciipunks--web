@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '@components/Card'
+import MintedTokens from './MintedTokens'
 import s from './Intro.module.css'
 
 const Intro = () => (
@@ -10,6 +11,8 @@ const Intro = () => (
         Basically AsciiPunks are what would happen if the CryptoPunks fell into a portal and wound up in the terminal dimension!
       </p>
     </Card>
+
+    <MintedTokens />
 
     <Card className={s.card}>
       <p className={s.p}>

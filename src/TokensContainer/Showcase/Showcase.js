@@ -4,7 +4,7 @@ import sortBy from 'lodash/fp/sortBy'
 import Card from '@components/Card'
 import formatURI from '@utils/formatURI'
 import { useContracts } from '@hooks'
-import Token from './Token'
+import Token from '@components/Token'
 import s from './Showcase.module.css'
 
 const Showcase = () => {

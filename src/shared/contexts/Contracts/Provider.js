@@ -73,15 +73,19 @@ const Provider = ({ children }) => {
     getSaleStarted,
   ])
 
+  const fetchTokensById = useCallback(
+    async (ids) => {
+      return Promise.all(ids.map(async (id) => punks.draw(id)))
+    },
+    [punks]
+  )
+
   const createPunk = useCallback(
     async (seed) => {
-      await punks.createPunk(
-        parseInt(seed),
-        {
-          value: '100000000000000000',
-          from: walletAddress,
-        },
-      )
+      await punks.createPunk(parseInt(seed), {
+        value: '100000000000000000',
+        from: walletAddress,
+      })
 
       const { totalSupply, tokenLimit } = await totalPunks()
       setTotalSupply(totalSupply)
@@ -102,11 +106,12 @@ const Provider = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        nfts,
-        totalSupply,
-        tokenLimit,
         createPunk,
-        saleStarted
+        fetchTokensById,
+        nfts,
+        saleStarted,
+        tokenLimit,
+        totalSupply,
       }}
     >
       {children}

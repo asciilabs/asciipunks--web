@@ -1,0 +1,55 @@
+.card {
+  margin: 24px auto;
+  width: var(--content-width);
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+}
+
+.button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: #d3d3d3;
+  border: none;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  box-shadow: none;
+  color: #000;
+  outline: 2px solid #000;
+}
+
+.leftButton {
+  left: -24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%;);
+}
+
+.rightButton {
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  transform: translateY(-50%;);
+}
+
+.button:active {
+  color: #fff;
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1em;
+  padding-bottom: 16px;
+}
