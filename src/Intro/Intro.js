@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '@components/Card'
 import MintedTokens from './MintedTokens'
+import MintButton from '../TokensContainer/MintButton'
 import cn from 'classnames'
 import s from './Intro.module.css'
 
@@ -14,6 +15,7 @@ const Intro = () => (
     </Card>
 
     <MintedTokens />
+    <MintButton />
 
     <Card className={s.card}>
       <h2 className={s.h2}>About</h2>
