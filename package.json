@@ -26,6 +26,7 @@
     "@ethersproject/contracts": "^5.0.5",
     "@ethersproject/providers": "^5.0.12",
     "@hot-loader/react-dom": "^17.0.1",
+    "@use-it/interval": "^1.0.0",
     "@walletconnect/web3-provider": "^1.4.0",
     "babel-loader": "^8.2.2",
     "classnames": "^2.2.6",

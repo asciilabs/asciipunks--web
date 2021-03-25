@@ -1,4 +1,5 @@
 import abis from '@abis'
+import useInterval from '@use-it/interval'
 import useWeb3 from '@hooks/useWeb3'
 import { Contract } from 'ethers'
 import React, { useCallback, useEffect, useState } from 'react'
@@ -52,17 +53,14 @@ const Provider = ({ children }) => {
     return started
   }, [punks, walletAddress])
 
-  useEffect(() => {
-    async function fetchTokens() {
-      setNfts(await punksForUser())
+  const fetchTokens = useCallback(async () => {
+    setNfts(await punksForUser())
 
-      const { totalSupply, tokenLimit } = await totalPunks()
-      const started = await getSaleStarted()
-      setSaleStarted(started)
-      setTotalSupply(totalSupply)
-      setTokenLimit(tokenLimit)
-    }
-    fetchTokens()
+    const { totalSupply, tokenLimit } = await totalPunks()
+    const started = await getSaleStarted()
+    setSaleStarted(started)
+    setTotalSupply(totalSupply)
+    setTokenLimit(tokenLimit)
   }, [
     setTotalSupply,
     setTokenLimit,
@@ -72,6 +70,14 @@ const Provider = ({ children }) => {
     totalPunks,
     getSaleStarted,
   ])
+
+  useInterval(async () => {
+    fetchTokens()
+  }, 5000)
+
+  useEffect(() => {
+    fetchTokens()
+  }, [fetchTokens])
 
   const fetchTokensById = useCallback(
     async (ids) => {
