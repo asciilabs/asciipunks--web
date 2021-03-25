@@ -12,7 +12,7 @@ const Showcase = () => {
   const { nfts, tokenLimit, totalSupply } = useContracts()
 
   return (
-    <Card className={s.showcaseContainer}>
+    <Card className={s.showcaseContainer} id="mypunks">
       <div className={s.flex}>
         <h2 className={s.h2}>Your Punks</h2>
         <PunkCount className={s.punkCount} />

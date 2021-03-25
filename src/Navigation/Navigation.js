@@ -23,11 +23,11 @@ const Navigation = () => {
   return (
     <nav className={s.navigation}>
       <div className={s.spacer} />
-      <Button className={s.button} onClick={() => history.push('/faq')}>
-        FAQ
-      </Button>
-      <Button className={s.button} onClick={() => scrollTo('specs')}>
+      <Button className={s.button} onClick={() => scrollTo('about')}>
         About
+      </Button>
+      <Button className={s.button} onClick={() => scrollTo('mypunks')}>
+        My Punks 
       </Button>
       <Button
         className={s.button}

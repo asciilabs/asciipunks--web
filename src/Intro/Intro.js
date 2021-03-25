@@ -17,7 +17,7 @@ const Intro = () => (
     <MintedTokens />
     <MintButton />
 
-    <Card className={s.card}>
+    <Card className={s.card} id="about">
       <h2 className={s.h2}>About</h2>
       <p className={s.p}>
         These little dudes are comprised of 12x12 lines of ascii text generated entirely on-chain! Thats right! When each
@@ -98,7 +98,7 @@ const Intro = () => (
       </p>
     </Card>
 
-    <Card className={s.card}>
+    <Card className={s.card} id='faq'>
       <h2 className={s.h2}>FAQ</h2>
 
       <h3 className={s.h3}> > What is an NFT?</h3>
