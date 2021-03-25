@@ -12,6 +12,7 @@ const Provider = ({ children }) => {
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
   const [saleStarted, setSaleStarted] = useState(false)
+  const [currentPrice, setCurrentPrice] = useState('');
   const [punks, setPunks] = useState(
     new Contract(addresses.asciiPunks, abis.asciiPunks)
   )
@@ -53,23 +54,55 @@ const Provider = ({ children }) => {
     return started
   }, [punks, walletAddress])
 
+  const calculateCurrentPrice = useCallback(
+    async () => {
+      const { totalSupply } = await totalPunks()
+      let currentPrice;
+
+      if (totalSupply < 256) {
+        currentPrice = '50000000000000000';
+      } else if (totalSupply >= 256 && totalSupply < 512) {
+        currentPrice = '100000000000000000';
+      } else if (totalSupply >= 512 && totalSupply < 1024) {
+        currentPrice = '200000000000000000';
+      } else if (totalSupply >= 1024 && totalSupply < 1536) {
+        currentPrice = '300000000000000000';
+      } else {
+        currentPrice = '400000000000000000';
+      }
+      return currentPrice;
+    },
+    [ totalPunks ]
+  )
+
   const fetchTokens = useCallback(async () => {
     setNfts(await punksForUser())
 
     const { totalSupply, tokenLimit } = await totalPunks()
     const started = await getSaleStarted()
+    const currentPrice = await calculateCurrentPrice()
     setSaleStarted(started)
     setTotalSupply(totalSupply)
     setTokenLimit(tokenLimit)
+    setCurrentPrice(currentPrice)
   }, [
     setTotalSupply,
     setTokenLimit,
     setSaleStarted,
     setNfts,
+    setCurrentPrice,
+    currentPrice,
     punksForUser,
     totalPunks,
     getSaleStarted,
   ])
+
+  const fetchTokensById = useCallback(
+    async (ids) => {
+      return Promise.all(ids.map(async (id) => punks.draw(id)))
+    },
+    [punks]
+  )
 
   useInterval(async () => {
     fetchTokens()
@@ -79,18 +112,11 @@ const Provider = ({ children }) => {
     fetchTokens()
   }, [fetchTokens])
 
-  const fetchTokensById = useCallback(
-    async (ids) => {
-      return Promise.all(ids.map(async (id) => punks.draw(id)))
-    },
-    [punks]
-  )
-
   const createPunk = useCallback(
     async (seed) => {
       await punks.createPunk(parseInt(seed), {
-        value: '100000000000000000',
-        from: walletAddress,
+        value: currentPrice,
+        from: walletAddress
       })
 
       const { totalSupply, tokenLimit } = await totalPunks()
@@ -100,6 +126,7 @@ const Provider = ({ children }) => {
     },
     [
       punks,
+      currentPrice,
       walletAddress,
       totalPunks,
       setTotalSupply,
@@ -118,6 +145,7 @@ const Provider = ({ children }) => {
         saleStarted,
         tokenLimit,
         totalSupply,
+        currentPrice,
       }}
     >
       {children}

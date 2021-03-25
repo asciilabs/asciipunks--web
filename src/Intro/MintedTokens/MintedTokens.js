@@ -36,7 +36,7 @@ const MintedTokens = () => {
 
   return (
     <Card className={s.card}>
-      <h2 className={s.h2}>Lineup</h2>
+      <h2 className={s.h2}>Minted AsciiPunks</h2>
       <div className={s.container}>
         <button
           className={cn('fas fa-arrow-left', s.button, s.leftButton)}

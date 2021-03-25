@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import { utils } from 'web3'
 import Button from '@components/Button'
 import { useContracts } from '@hooks'
 import cn from 'classnames'
@@ -25,7 +26,8 @@ const MintButton = () => {
     createPunk,
     saleStarted,
     tokenLimit,
-    totalSupply
+    totalSupply,
+    currentPrice,
   } = useContracts()
   const [modalOpen, setModalOpen] = useState(false)
   const [seed, setSeed] = useState(0)
@@ -35,11 +37,11 @@ const MintButton = () => {
   let buttonCopy;
 
   if (saleStarted) {
-     if (!saleEnded) {
-      buttonCopy = 'Mint 1 AsciiPunk for 0.1 ETHER'
-     } else {
-       buttonCopy = 'All AsciiPunks have been sold out!'
-     }
+    if (!saleEnded) {
+      buttonCopy = `Mint 1 AsciiPunk for ${utils.fromWei(currentPrice, 'ether')} ETHER`
+    } else {
+      buttonCopy = 'All AsciiPunks have been sold out!'
+    }
   } else {
     buttonCopy = "Sale hasn't started yet! Check back later."
   }
@@ -49,7 +51,7 @@ const MintButton = () => {
       <Button
         className={cn(s.largeButton, {
           [s.mintButton]: saleStarted,
-          [s.salePausedButton]: !saleStarted
+            [s.salePausedButton]: !saleStarted
         })}
         disabled={!saleStarted || saleEnded}
         onClick={() => {
@@ -72,11 +74,11 @@ const MintButton = () => {
               type="number"
               value={seed}
               onChange={(e) =>
-                setSeed((x) => {
-                  if (!(e.nativeEvent.data || e.target.value)) return 0
+                  setSeed((x) => {
+                    if (!(e.nativeEvent.data || e.target.value)) return 0
 
-                  return parseInt(e.target.value).toString()
-                })
+                    return parseInt(e.target.value).toString()
+                  })
               }
             />
             <button

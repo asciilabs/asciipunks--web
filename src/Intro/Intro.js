@@ -43,6 +43,23 @@ const Intro = () => (
         So if you are an on-chain maximalist, a decentralization junkie, or a real OG crypto head, this is the project for you.
       </p>
     </Card>
+    <Card className={s.card}>
+      <h2 className={s.h2}>Pricing</h2>
+      <p className={s.p}>
+        AsciiPunks are priced on the following curve:
+        <br/>
+        <br/>
+        > 1 - 256: 0.05 ETH
+        <br/>
+        > 257 - 512: 0.1 ETH
+        <br/>
+        > 513 - 1024: 0.2 ETH
+        <br/>
+        > 1025 - 1536: 0.3 ETH
+        <br/>
+        > 1537 - 2048: 0.4 ETH
+      </p>
+    </Card>
 
     <Card className={s.card} id="specs">
       <h2 className={s.h2}>Specs</h2>
@@ -102,7 +119,7 @@ const Intro = () => (
       <p>
         After you use the site to mint, and once the transaction is confirmed, your newly adoped punk will show up here.
         Since AsciiPunks are an ERC721 compliant NFT, they will be viewable/tradeable on all major platforms.
-      </p>
+      </p> 
     </Card>
 
     <Card className={s.card}>
