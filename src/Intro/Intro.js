@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '@components/Card'
 import MintedTokens from './MintedTokens'
+import cn from 'classnames'
 import s from './Intro.module.css'
 
 const Intro = () => (
@@ -75,6 +76,32 @@ const Intro = () => (
       <p className={s.p}>
         There will only be 2048 of these little punks ever minted, so get yours
         while you can.
+      </p>
+    </Card>
+
+    <Card className={s.card}>
+      <h2 className={s.h2}>FAQ</h2>
+
+      <h3 className={s.h3}> > What is an NFT?</h3>
+      <p>
+        What have you been living under a rock or something? NFT stands for "non-fungible token".
+        It is a special type of token minted on the Ethereum blockahain. Each token is unique
+        and can not be replace by any other token. Lately NFT's have taken the world by storm,
+        as more and more people use them to collect and trade there favorite digital art.
+        Think about them as digital collectibles, whose uniquness and authenticity is verified by the blockchain.
+      </p>
+
+      <h3 className={cn(s.h3, s.pt)}> > How can I buy an AsciiPunk?</h3>
+      <p>
+        To buy an AsciiPunk, you need to have an Ethereum wallet setup. A commonly recommended one is{' '}
+        <a href="https://metamask.io/" target="_blank">Metamask</a>. Get the Metamask chrome extension,
+        set up your wallet, and fund it with ETH. Once you do that, you can use the "connect" button a the top of the page to
+        connect your wallet to the site. Then mint to your hearts content!
+      </p>
+      <h3 className={cn(s.h3, s.pt)}> > How can I see my AsciiPunk?</h3>
+      <p>
+        After you use the site to mint, and once the transaction is confirmed, your newly adoped punk will show up here.
+        Since AsciiPunks are an ERC721 compliant NFT, they will be viewable/tradeable on all major platforms.
       </p>
     </Card>
 
