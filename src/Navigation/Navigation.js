@@ -5,8 +5,17 @@ import ConnectButton from './ConnectButton'
 import s from './Navigation.module.css'
 import addresses from '@shared/addresses'
 
-const baseURI = process.env.ETH_NET == "rinkeby" ? "https://rinkeby.etherscan.io/address/" : "https://etherscan.io/address/"
-const etherscanURL = `${baseURI}${addresses.asciiPunks}`;
+const baseURI =
+  process.env.ETH_NET == 'rinkeby'
+    ? 'https://rinkeby.etherscan.io/address/'
+    : 'https://etherscan.io/address/'
+const etherscanURL = `${baseURI}${addresses.asciiPunks}`
+
+const scrollTo = (id) => {
+  document
+    .getElementById(id)
+    .scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' })
+}
 
 const Navigation = () => {
   const history = useHistory()
@@ -17,10 +26,13 @@ const Navigation = () => {
       <Button className={s.button} onClick={() => history.push('/faq')}>
         FAQ
       </Button>
-      <Button className={s.button} onClick={() => history.push('/about')}>
+      <Button className={s.button} onClick={() => scrollTo('specs')}>
         About
       </Button>
-      <Button className={s.button} onClick={() => window.open(etherscanURL, "_blank")}>
+      <Button
+        className={s.button}
+        onClick={() => window.open(etherscanURL, '_blank')}
+      >
         Etherscan
       </Button>
       <ConnectButton />

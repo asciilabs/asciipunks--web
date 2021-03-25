@@ -29,7 +29,7 @@ const Intro = () => (
       </p>
     </Card>
 
-    <Card className={s.card}>
+    <Card className={s.card} id="specs">
       <h2 className={s.h2}>Specs</h2>
       <p className={s.p}>
         To get a little more technical for the folks who are interested, the
