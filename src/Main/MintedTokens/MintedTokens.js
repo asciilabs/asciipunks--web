@@ -5,7 +5,7 @@ import Card from '@components/Card'
 import Token from '@components/Token'
 import useContracts from '@hooks/useContracts'
 import s from './MintedTokens.module.css'
-import PunkCount from '../../TokensContainer/PunkCount'
+import PunkCount from '../PunkCount'
 
 const MintedTokens = () => {
   const { fetchTokensById, totalSupply } = useContracts()

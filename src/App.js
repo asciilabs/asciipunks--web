@@ -6,9 +6,8 @@ import { ContractsProvider } from "@contexts/Contracts";
 
 import Navigation from './Navigation'
 import Title from './Title'
-import Intro from './Intro'
+import Main from './Main'
 import Stars from './Stars'
-import TokensContainer from './TokensContainer'
 import ErrorPage from './ErrorPage'
 import s from './App.module.css'
 import './fonts.css'
@@ -27,8 +26,7 @@ const App = () => {
             <Title />
             <Switch>
               <Route path="/" exact>
-                <Intro />
-                <TokensContainer />
+                <Main />
               </Route>
               <Route path="/">
                 <ErrorPage />
