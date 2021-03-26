@@ -12,11 +12,22 @@ const Provider = ({ children }) => {
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
   const [saleStarted, setSaleStarted] = useState(false)
-  const [currentPrice, setCurrentPrice] = useState('');
+  const [currentPrice, setCurrentPrice] = useState('')
   const [punks, setPunks] = useState(
     new Contract(addresses.asciiPunks, abis.asciiPunks)
   )
   const { wallet, walletAddress } = useWeb3()
+
+  useEffect(() => {
+    ;(async function () {
+      if (!punks) return
+
+      await punks.deployed()
+      punks.on('Generated', (...args) => console.log(args))
+    })()
+
+    return () => punks.off('Generated')
+  }, [punks])
 
   useEffect(() => {
     if (!!wallet && !punks.signer) {
@@ -54,26 +65,23 @@ const Provider = ({ children }) => {
     return started
   }, [punks, walletAddress])
 
-  const calculateCurrentPrice = useCallback(
-    async () => {
-      const { totalSupply } = await totalPunks()
-      let currentPrice;
+  const calculateCurrentPrice = useCallback(async () => {
+    const { totalSupply } = await totalPunks()
+    let currentPrice
 
-      if (totalSupply < 256) {
-        currentPrice = '50000000000000000';
-      } else if (totalSupply >= 256 && totalSupply < 512) {
-        currentPrice = '100000000000000000';
-      } else if (totalSupply >= 512 && totalSupply < 1024) {
-        currentPrice = '200000000000000000';
-      } else if (totalSupply >= 1024 && totalSupply < 1536) {
-        currentPrice = '300000000000000000';
-      } else {
-        currentPrice = '400000000000000000';
-      }
-      return currentPrice;
-    },
-    [ totalPunks ]
-  )
+    if (totalSupply < 256) {
+      currentPrice = '50000000000000000'
+    } else if (totalSupply >= 256 && totalSupply < 512) {
+      currentPrice = '100000000000000000'
+    } else if (totalSupply >= 512 && totalSupply < 1024) {
+      currentPrice = '200000000000000000'
+    } else if (totalSupply >= 1024 && totalSupply < 1536) {
+      currentPrice = '300000000000000000'
+    } else {
+      currentPrice = '400000000000000000'
+    }
+    return currentPrice
+  }, [totalPunks])
 
   const fetchTokens = useCallback(async () => {
     setNfts(await punksForUser())
@@ -116,7 +124,8 @@ const Provider = ({ children }) => {
     async (seed) => {
       await punks.createPunk(parseInt(seed), {
         value: currentPrice,
-        from: walletAddress
+        from: walletAddress,
+        gasLimit: 200000
       })
 
       const { totalSupply, tokenLimit } = await totalPunks()

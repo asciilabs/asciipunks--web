@@ -1,7 +1,7 @@
+import React, { useCallback, useEffect, useState } from 'react'
 import { JsonRpcSigner } from '@ethersproject/providers'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { ethers } from 'ethers'
-import React, { useCallback, useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import Context from './Context'
 
