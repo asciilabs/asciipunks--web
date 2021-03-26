@@ -13,7 +13,7 @@ const MintedTokens = () => {
   const [tokens, setTokens] = useState([])
 
   const rangeFrom = (x) => {
-    const endingId = x + 4
+    const endingId = x + 10
 
     return [...Array(totalSupply + 1).keys()].slice(x, endingId)
   }
@@ -48,7 +48,7 @@ const MintedTokens = () => {
             setIds((ids) => {
               if (ids[0] == 1) return rangeFrom(totalSupply - 3)
 
-              return rangeFrom(ids[0] - 4)
+              return rangeFrom(ids[0] - 10)
             })
           }}
         />
