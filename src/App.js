@@ -10,6 +10,8 @@ import Navigation from './Navigation'
 import Title from './Title'
 import Main from './Main'
 import Stars from './Stars'
+import MyPunks from './MyPunks'
+import Punk from './Punk'
 import ErrorPage from './ErrorPage'
 import s from './App.module.css'
 import './fonts.css'
@@ -27,6 +29,12 @@ const App = () => {
             <Stars />
             <Title />
             <Switch>
+              <Route path="/mypunks/:address" exact>
+                <MyPunks />
+              </Route>
+              <Route path="/punk/:id" exact>
+                <Punk />
+              </Route>
               <Route path="/" exact>
                 <Main />
               </Route>
