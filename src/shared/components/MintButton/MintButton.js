@@ -71,6 +71,7 @@ const MintButton = () => {
         isOpen={modalOpen}
         style={customStyles}
         onRequestClose={() => setModalOpen(false)}
+        onAfterOpen={() => setSeed(Math.floor(Math.random() * 1000000000000))}
       >
         <p>What seed number would you like to use to generate your punk?</p>
         <div>
