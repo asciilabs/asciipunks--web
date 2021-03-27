@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
 import { utils } from 'web3'
 import Button from '@components/Button'
@@ -45,6 +45,10 @@ const MintButton = () => {
   } else {
     buttonCopy = "Sale hasn't started yet! Check back later."
   }
+
+  useEffect(() => {
+    setSeed(Math.floor(Math.random() * 1000000000000))
+  }, [])
 
   return (
     <>
@@ -95,6 +99,7 @@ const MintButton = () => {
             onClick={async() => {
               await createPunk(seed)
               setModalOpen(false)
+              setSeed(Math.floor(Math.random() * 1000000000000))
             }}
           >
             Submit
