@@ -7,7 +7,6 @@ import Context from './Context'
 import addresses from '../../addresses'
 
 const Provider = ({ children }) => {
-  // const { setLoadingMessage } = useLoading();
   const [nfts, setNfts] = useState([])
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
@@ -19,7 +18,7 @@ const Provider = ({ children }) => {
   const { wallet, walletAddress } = useWeb3()
 
   useEffect(() => {
-    ;(async function () {
+    (async function () {
       if (!punks) return
 
       await punks.deployed()
