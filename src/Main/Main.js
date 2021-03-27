@@ -81,7 +81,7 @@ const Intro = () => {
         </p>
       </Card>
 
-      {connected && nfts.length > 0 ? <Showcase /> : null}
+      <Showcase />
 
       <Card className={s.card} id="faq">
         <h2 className={s.h2}>FAQ</h2>
