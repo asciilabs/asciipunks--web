@@ -34,11 +34,14 @@ const MintButton = () => {
 
   const saleEnded = tokenLimit === totalSupply
 
-  let buttonCopy;
+  let buttonCopy
 
   if (saleStarted) {
     if (!saleEnded) {
-      buttonCopy = `Mint 1 AsciiPunk for ${utils.fromWei(currentPrice, 'ether')} ETHER`
+      buttonCopy = `Mint 1 AsciiPunk for ${utils.fromWei(
+        currentPrice,
+        'ether'
+      )} ETHER`
     } else {
       buttonCopy = 'All AsciiPunks have been sold out!'
     }
@@ -55,14 +58,14 @@ const MintButton = () => {
       <Button
         className={cn(s.largeButton, {
           [s.mintButton]: saleStarted,
-            [s.salePausedButton]: !saleStarted
+          [s.salePausedButton]: !saleStarted,
         })}
         disabled={!saleStarted || saleEnded}
         onClick={() => {
           setModalOpen(true)
         }}
       >
-        {buttonCopy} 
+        {buttonCopy}
       </Button>
       <Modal
         isOpen={modalOpen}
@@ -78,11 +81,11 @@ const MintButton = () => {
               type="number"
               value={seed}
               onChange={(e) =>
-                  setSeed((x) => {
-                    if (!(e.nativeEvent.data || e.target.value)) return 0
+                setSeed((x) => {
+                  if (!(e.nativeEvent.data || e.target.value)) return 0
 
-                    return parseInt(e.target.value).toString()
-                  })
+                  return parseInt(e.target.value).toString()
+                })
               }
             />
             <button
@@ -96,7 +99,7 @@ const MintButton = () => {
           </div>
           <button
             className={s.submit}
-            onClick={async() => {
+            onClick={async () => {
               await createPunk(seed)
               setModalOpen(false)
               setSeed(Math.floor(Math.random() * 1000000000000))

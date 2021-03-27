@@ -3,6 +3,8 @@ import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Web3Provider } from "@contexts/Web3";
 import { ContractsProvider } from "@contexts/Contracts";
+import 'noty/lib/noty.css'
+import './noty-theme.css'
 
 import Navigation from './Navigation'
 import Title from './Title'

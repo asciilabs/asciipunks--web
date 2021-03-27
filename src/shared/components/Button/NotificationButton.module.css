@@ -1,0 +1,17 @@
+.button {
+  background: var(--green);
+  border: none;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-family: 'Game Over';
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.small {
+  padding: 8px 8px 6px;
+  font-size: 0.8em;
+}
+

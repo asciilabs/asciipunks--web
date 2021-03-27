@@ -1,6 +1,7 @@
 .largeButton {
   display: block;
   font-size: 24px;
+  border-radius: 2px;
   margin: 48px auto;
   height: 64px;
   width: var(--content-width);

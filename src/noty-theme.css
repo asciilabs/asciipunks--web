@@ -1,0 +1,28 @@
+.noty_layout {
+  background: rgba(0, 0, 0, 0.83);
+  border-radius: 32px;
+  bottom: 96px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: white;
+  min-height: 144px;
+  text-shadow: 2px 3px black;
+  padding: 2rem 3rem !important;
+}
+
+@media (min-width: 1280px) {
+  .noty_layout {
+    width: 56vw !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .noty_layout {
+    width: 73vw !important;
+  }
+}
+
+
+.noty_bar {
+  overflow: initial;
+}

@@ -1,8 +1,12 @@
+import React, { useCallback, useEffect, useState } from 'react'
 import abis from '@abis'
+import cn from 'classnames'
 import useInterval from '@use-it/interval'
 import useWeb3 from '@hooks/useWeb3'
 import { Contract } from 'ethers'
-import React, { useCallback, useEffect, useState } from 'react'
+
+import s from '@components/Button/NotificationButton.module.css'
+import Noty from 'noty'
 import Context from './Context'
 import addresses from '../../addresses'
 
@@ -22,7 +26,34 @@ const Provider = ({ children }) => {
       if (!punks) return
 
       await punks.deployed()
-      punks.on('Generated', (...args) => console.log(args))
+      punks.on('Generated', (tokenId, address, token, { transactionHash }) => {
+        const noty = new Noty({
+          layout: 'bottom',
+          buttons: [
+            Noty.button('Etherscan', cn(s.button, s.small), () =>
+              window.open(
+                `${
+                  process.env.ETHERSCAN_BASE || 'https://etherscan.com'
+                }/tx/${transactionHash}`,
+                '_blank'
+              )
+            ),
+            /*
+            Noty.button('Tweet', cn(s.button, s.small), () => {
+              const encodedPunk = encodeURIComponent(token)
+              const previewLink = `https://carbon.now.sh/?l=txt&code=${encodedPunk}&fm=Fira%20Code`
+              const tweetBody = `Check out this new punk I just minted on https://asciipunks.com ${previewLink}`
+              const tweetLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetBody)}`
+
+              window.open(tweetLink, '_blank')
+            }),
+            */
+          ],
+          text: `Punk #${tokenId} minted— your punk is ready!
+          <div style="padding: 16px 0; display: flex; justify-content: center;"><pre style="display: inline-block;">${token}</pre></div>`,
+          timeout: 4000,
+        }).show()
+      })
     })()
 
     return () => punks.off('Generated')
@@ -124,7 +155,7 @@ const Provider = ({ children }) => {
       await punks.createPunk(parseInt(seed), {
         value: currentPrice,
         from: walletAddress,
-        gasLimit: 200000
+        gasLimit: 200000,
       })
 
       const { totalSupply, tokenLimit } = await totalPunks()
