@@ -21,6 +21,17 @@ const Intro = () => {
           Basically AsciiPunks are what would happen if the CryptoPunks fell
           into a portal and wound up in the terminal dimension!
         </p>
+        <p className={s.p}>
+          These little dudes are comprised of 12x12 lines of ascii text
+          generated entirely on-chain! Thats right! When each little punk is
+          minted, a generative algorithm is run to produce a random punk, which
+          you can see an example of{' '}
+          <a href={process.env.GENERATED_EVENT_URL} target="_blank">
+            here
+          </a>
+          . Each punk is self contained on the ethereum blockchain. In other
+          words, the NFT itself is the art.
+        </p>
       </Card>
 
       <MintedTokens />
@@ -45,18 +56,7 @@ const Intro = () => {
       </Card>
 
       <Card className={s.card} id="about">
-        <h2 className={s.h2}>About</h2>
-        <p className={s.p}>
-          These little dudes are comprised of 12x12 lines of ascii text
-          generated entirely on-chain! Thats right! When each little punk is
-          minted, a generative algorithm is run to produce a random punk, which
-          you can see an example of{' '}
-          <a href={process.env.GENERATED_EVENT_URL} target="_blank">
-            here
-          </a>
-          . Each punk is self contained on the ethereum blockchain. In other
-          words, the NFT itself is the art.
-        </p>
+        <h2 className={s.h2}>About</h2> 
         <p className={s.p}>
           The AsciiPunks grew out of a realization that many of the NFT's we
           trade and collect today are nothing more than tokens with a hardcoded
