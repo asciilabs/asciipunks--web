@@ -53,7 +53,7 @@ const Provider = ({ children }) => {
             */
               ],
               text: `Punk #${tokenId} minted— your punk is ready!
-          <div style="padding: 16px 0; display: flex; justify-content: center;"><pre style="display: inline-block;">${token}</pre></div>`,
+          <div style="padding: 16px 0; display: flex; font-family: 'Unimono', monospace; justify-content: center;"><pre style="display: inline-block;">${token}</pre></div>`,
               timeout: 4000,
             }).show()
           }
