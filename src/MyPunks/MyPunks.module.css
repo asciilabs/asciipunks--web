@@ -1,8 +1,18 @@
 .card {
+  margin: 32px auto;
+  width: var(--content-width);
+}
+
+.container {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 32px auto;
-  width: var(--content-width);
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1em;
+  padding-bottom: 16px;
 }
