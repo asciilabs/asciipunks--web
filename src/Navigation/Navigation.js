@@ -35,6 +35,12 @@ const Navigation = () => {
       >
         Etherscan
       </Button>
+      <Button
+        className={s.button}
+        onClick={() => window.open('https://opensea.io/collection/asciipunks-v2', '_blank')}
+      >
+       OpenSea 
+      </Button>
       <ConnectButton />
     </nav>
   )
