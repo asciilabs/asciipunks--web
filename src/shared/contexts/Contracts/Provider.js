@@ -72,14 +72,15 @@ const Provider = ({ children }) => {
     }
   }, [wallet, setPunks, punks])
 
-  const punksForUser = useCallback(async () => {
-    if (!walletAddress || !punks.signer) return []
+  const punksForUser = useCallback(async (userAddress) => {
+    const address = userAddress || walletAddress
+    if (!address || !punks.signer) return []
     const userPunks = []
 
-    const balance = (await punks.balanceOf(walletAddress)).toNumber()
+    const balance = (await punks.balanceOf(address)).toNumber()
     for (let index = 0; index < balance; index++) {
       const id = (
-        await punks.tokenOfOwnerByIndex(walletAddress, index)
+        await punks.tokenOfOwnerByIndex(address, index)
       ).toNumber()
       userPunks.push({ punk: await punks.draw(id), id })
     }
@@ -187,6 +188,7 @@ const Provider = ({ children }) => {
       value={{
         createPunk,
         fetchTokensById,
+        punksForUser,
         nfts,
         saleStarted,
         tokenLimit,
