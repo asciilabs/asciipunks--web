@@ -89,6 +89,7 @@ const Provider = ({ children }) => {
   )
 
   const drawPunk = useCallback(async (id) => await punks.draw(id), [punks])
+  const ownerOf = useCallback(async (id) => await punks.ownerOf(id), [punks])
 
   const totalPunks = useCallback(async () => {
     if (!walletAddress || !punks.signer) return []
@@ -190,14 +191,15 @@ const Provider = ({ children }) => {
     <Context.Provider
       value={{
         createPunk,
+        currentPrice,
+        drawPunk,
         fetchTokensById,
-        punksForUser,
         nfts,
+        ownerOf,
+        punksForUser,
         saleStarted,
         tokenLimit,
         totalSupply,
-        currentPrice,
-        drawPunk
       }}
     >
       {children}

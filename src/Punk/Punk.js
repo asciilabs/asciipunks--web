@@ -7,8 +7,9 @@ import { useParams } from 'react-router-dom'
 import s from './Punk.module.css'
 
 const Punk = () => {
-  const { drawPunk } = useContracts()
+  const { drawPunk, ownerOf } = useContracts()
   const [punk, setPunk] = useState()
+  const [owner, setOwner] = useState()
   const { id } = useParams()
 
   useEffect(async () => {
@@ -17,12 +18,19 @@ const Punk = () => {
     setPunk(await drawPunk(id))
   }, [drawPunk])
 
+  useEffect(async () => {
+    if (!ownerOf) return
+
+    setOwner(await ownerOf(id))
+  }, [ownerOf])
+
   if (!punk) return null
 
   return (
     <Card className={s.card}>
       <h2 className={s.h2}>Punk #{id}</h2>
       <Token token={punk} id={id} key={id} showId={false} />
+      <h3 className={s.h3}>Owned by {owner}</h3>
     </Card>
   )
 }
