@@ -1,11 +1,6 @@
 .background {
   background-color: var(--violet);
   min-height: 100vh;
+  padding-top: 36px;
   padding-bottom: 56px;
-}
-
-@media only screen and (max-width: 1280px) {
-  .background {
-    padding-top: 36px;
-  }
 }
