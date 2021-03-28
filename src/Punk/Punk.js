@@ -34,7 +34,6 @@ const Punk = () => {
           name="twitter:image"
           content={`https://api.asciipunks.com/punks/${id}/preview`}
         />
-        <meta name="twitter:title" content={`Punk #${id}`} />
       </Helmet>
       <Card className={s.card}>
         <h2 className={s.h2}>Punk #{id}</h2>
