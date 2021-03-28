@@ -1,0 +1,16 @@
+.card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 32px auto;
+  width: var(--content-width);
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1em;
+  padding-bottom: 16px;
+}

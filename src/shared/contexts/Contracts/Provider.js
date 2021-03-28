@@ -72,20 +72,23 @@ const Provider = ({ children }) => {
     }
   }, [wallet, setPunks, punks])
 
-  const punksForUser = useCallback(async (userAddress) => {
-    const address = userAddress || walletAddress
-    if (!address || !punks.signer) return []
-    const userPunks = []
+  const punksForUser = useCallback(
+    async (userAddress) => {
+      const address = userAddress || walletAddress
+      if (!address || !punks.signer) return []
+      const userPunks = []
 
-    const balance = (await punks.balanceOf(address)).toNumber()
-    for (let index = 0; index < balance; index++) {
-      const id = (
-        await punks.tokenOfOwnerByIndex(address, index)
-      ).toNumber()
-      userPunks.push({ punk: await punks.draw(id), id })
-    }
-    return userPunks
-  }, [punks, walletAddress])
+      const balance = (await punks.balanceOf(address)).toNumber()
+      for (let index = 0; index < balance; index++) {
+        const id = (await punks.tokenOfOwnerByIndex(address, index)).toNumber()
+        userPunks.push({ punk: await punks.draw(id), id })
+      }
+      return userPunks
+    },
+    [punks, walletAddress]
+  )
+
+  const drawPunk = useCallback(async (id) => await punks.draw(id), [punks])
 
   const totalPunks = useCallback(async () => {
     if (!walletAddress || !punks.signer) return []
@@ -194,6 +197,7 @@ const Provider = ({ children }) => {
         tokenLimit,
         totalSupply,
         currentPrice,
+        drawPunk
       }}
     >
       {children}

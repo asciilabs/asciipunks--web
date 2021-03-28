@@ -32,7 +32,7 @@ const App = () => {
               <Route path="/mypunks/:address" exact>
                 <MyPunks />
               </Route>
-              <Route path="/punk/:id" exact>
+              <Route path="/punks/:id" exact>
                 <Punk />
               </Route>
               <Route path="/" exact>
