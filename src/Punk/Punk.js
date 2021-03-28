@@ -30,14 +30,6 @@ const Punk = () => {
   return (
     <>
       <Helmet>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ASCIIPunksNFT" />
-        <meta name="twitter:creator" content="@ASCIIPunksNFT" />
-        <meta name="twitter:title" content={`Punk #${id}`} />
-        <meta
-          name="twitter:description"
-          content="Check out this ASCIIPunk"
-        />
         <meta name="twitter:image" content={`https://api.asciipunks.com/punks/${id}/preview`} />
       </Helmet>
       <Card className={s.card}>
