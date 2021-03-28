@@ -30,18 +30,19 @@ const Provider = ({ children }) => {
         punks.on(
           'Generated',
           (tokenId, address, token, { transactionHash }) => {
-            const noty = new Noty({
-              layout: 'bottom',
-              buttons: [
-                Noty.button('Etherscan', cn(s.button, s.small), () =>
-                  window.open(
-                    `${
-                      process.env.ETHERSCAN_BASE || 'https://etherscan.com'
-                    }/tx/${transactionHash}`,
-                    '_blank'
-                  )
-                ),
-                /*
+            if (address == walletAddress) {
+              const noty = new Noty({
+                layout: 'bottom',
+                buttons: [
+                  Noty.button('Etherscan', cn(s.button, s.small), () =>
+                    window.open(
+                      `${
+                        process.env.ETHERSCAN_BASE || 'https://etherscan.com'
+                      }/tx/${transactionHash}`,
+                      '_blank'
+                    )
+                  ),
+                  /*
             Noty.button('Tweet', cn(s.button, s.small), () => {
               const encodedPunk = encodeURIComponent(token)
               const previewLink = `https://carbon.now.sh/?l=txt&code=${encodedPunk}&fm=Fira%20Code`
@@ -51,11 +52,12 @@ const Provider = ({ children }) => {
               window.open(tweetLink, '_blank')
             }),
             */
-              ],
-              text: `Punk #${tokenId} minted— your punk is ready!
+                ],
+                text: `Punk #${tokenId} minted— your punk is ready!
           <div style="padding: 16px 0; display: flex; font-family: 'Unimono', monospace; justify-content: center;"><pre style="display: inline-block;">${token}</pre></div>`,
-              timeout: 4000,
-            }).show()
+                timeout: 4000,
+              }).show()
+            }
           }
         )
       } catch (e) {}
