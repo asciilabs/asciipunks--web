@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import useContracts from '@hooks/useContracts'
 import Token from '@components/Token'
 import Card from '@components/Card'
@@ -27,11 +28,24 @@ const Punk = () => {
   if (!punk) return null
 
   return (
-    <Card className={s.card}>
-      <h2 className={s.h2}>Punk #{id}</h2>
-      <Token token={punk} id={id} key={id} showId={false} />
-      <h3 className={s.h3}>Owned by {owner}</h3>
-    </Card>
+    <>
+      <Helmet>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ASCIIPunksNFT" />
+        <meta name="twitter:creator" content="@ASCIIPunksNFT" />
+        <meta name="twitter:title" content={`Punk #${id}`} />
+        <meta
+          name="twitter:description"
+          content="Check out this ASCIIPunk"
+        />
+        <meta name="twitter:image" content={`https://api.asciipunks.com/punks/${id}/preview`} />
+      </Helmet>
+      <Card className={s.card}>
+        <h2 className={s.h2}>Punk #{id}</h2>
+        <Token token={punk} id={id} key={id} showId={false} />
+        <h3 className={s.h3}>Owned by {owner}</h3>
+      </Card>
+    </>
   )
 }
 
