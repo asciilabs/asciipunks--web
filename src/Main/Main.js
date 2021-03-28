@@ -18,18 +18,18 @@ const Intro = () => {
       <Card className={s.card}>
         <h2 className={s.h2}>What are the ASCIIPunks?</h2>
         <p className={s.p}>
-          Basically ASCIIPunks are what would happen if the CryptoPunks fell
+          Basically, ASCIIPunks are what would happen if the CryptoPunks fell
           into a portal and wound up in the terminal dimension!
         </p>
         <p className={s.p}>
           These little dudes are comprised of 12x12 lines of ASCII text
-          generated entirely on-chain! Thats right! When each little punk is
+          generated entirely on-chain! That's right! When each little punk is
           minted, a generative algorithm is run to produce a random punk, which
           you can see an example of{' '}
           <a href={process.env.GENERATED_EVENT_URL} target="_blank">
             here
           </a>
-          . Each punk is self contained on the ethereum blockchain. In other
+          . Each punk is self-contained on the ethereum blockchain. In other
           words, the NFT itself is the art.
         </p>
       </Card>
@@ -56,7 +56,7 @@ const Intro = () => {
       </Card>
 
       <Card className={s.card} id="about">
-        <h2 className={s.h2}>About</h2> 
+        <h2 className={s.h2}>About</h2>
         <p className={s.p}>
           The ASCIIPunks grew out of a realization that many of the NFT's we
           trade and collect today are nothing more than tokens with a hardcoded
@@ -67,7 +67,7 @@ const Intro = () => {
         </p>
 
         <p className={s.p}>
-          As an on-chain maximalist I find the idea of trusting centralized
+          As an on-chain maximalist, I find the idea of trusting centralized
           services to host artwork that I own entirely too custodial, and
           against the overall ethos of crypto and decentralization. What value
           can an NFT really have, so long as the token itself is not inseparable
@@ -90,9 +90,9 @@ const Intro = () => {
         <p>
           What have you been living under a rock or something? NFT stands for
           "non-fungible token". It is a special type of token minted on the
-          Ethereum blockchain. Each token is unique and can not be replace by
-          any other token. Lately NFT's have taken the world by storm, as more
-          and more people use them to collect and trade there favorite digital
+          Ethereum blockchain. Each token is unique and can not be replaced by
+          any other token. Lately, NFT's have taken the world by storm, as more
+          and more people use them to collect and trade their favorite digital
           art. Think about them as digital collectibles, whose uniqueness and
           authenticity is verified by the blockchain.
         </p>
@@ -104,10 +104,10 @@ const Intro = () => {
           <a href="https://metamask.io/" target="_blank">
             Metamask
           </a>
-          . Get the Metamask chrome extension, set up your wallet, and fund it
-          with ETH. Once you do that, you can use the "connect" button at the top
-          of the page to connect your wallet to the site. Then mint to your
-          hearts content!
+          . Get the Metamask Chrome extension, set up your wallet, and fund it
+          with ETH. Once you do that, you can use the "connect" button at the
+          top of the page to connect your wallet to the site. Then mint to your
+          heart's content!
         </p>
         <h3 className={cn(s.h3, s.pt)}> > How can I see my ASCIIPunk?</h3>
         <p>
@@ -127,30 +127,30 @@ const Intro = () => {
         </p>
         <p className={s.p}>
           When a user mints an ASCIIPunk a generative algorithm randomly
-          produces the ASCII-art representing the punk, and emits an event that
-          contains it. You can see an example of{' '}
+          produces the ASCII-art representing the punk and emits an event that
+          contains it. You can see an example{' '}
           <a href={process.env.GENERATED_EVENT_URL} target="_blank">
             here
           </a>
           .{' '}
         </p>
         <p className={s.p}>
-          After a punk has been minted, at anytime someone can query the smart
-          contract on-chain, and call "draw" with the given tokenID. Calling
-          draw will return the tokens ASCII art, and since the draw function is
-          a view call, it doesn't cost gas to call. Thus anyone can view the art
-          on chain at anytime, for free. Hence, with ASCIIPunks the token is
+          After a punk has been minted, at any time someone can query the smart
+          contract on-chain and call "draw" with the given tokenID. Calling draw
+          will return the tokens ASCII art, and since the draw function is a
+          view call, it doesn't cost gas to call. Thus anyone can view the art
+          on chain at any time, for free. Hence, with ASCIIPunks the token is
           inseparable from the artwork, and its value is linked intrinsically to
           the ethereum blockchain. So long as the ethereum blockchain survives,
-          so to will the ASCIIPunks.
+          so too will the ASCIIPunks.
         </p>
         <p className={s.p}>
           As a sort of "fallback" mechanism, and to ensure that the ASCIIPunks
           are easily viewable on all other NFT platforms, we also expose a
           standard ERC721-Metadata compliant `tokenURI` function. This tokenURI
-          function returns a url to our server, which responds with metadata
-          about the punk (including an svg image representing the punk). However
-          this function is not necessary to view the punks on-chain.
+          function returns a URL to our server, which responds with metadata
+          about the punk (including an SVG image representing the punk).
+          However, this function is not necessary to view the punks on-chain.
         </p>
         <p className={s.p}>
           There will only be 2048 of these little punks ever minted, so get
