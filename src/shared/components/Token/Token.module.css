@@ -23,4 +23,13 @@
   height: 48px;
   justify-content: center;
   padding: 0 24px;
+  position: relative;
+}
+
+.shareButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 0.8em;
+  color: grey;
 }
