@@ -32,9 +32,15 @@ const Punk = () => {
           name="twitter:image"
           content={`https://api.asciipunks.com/punks/${id}/preview`}
         />
+        <meta name="twitter:title" content={`ASCIIPunks — Punk #${id}`} />
         <meta
-          name="twitter:title"
-          content={`ASCIIPunks — Punk #${id}`}
+          property="og:url"
+          content={`https://asciipunks.com/punks/${id}`}
+        />
+        <meta property="og:title" content={`ASCIIPunks — Punk #${id}`} />
+        <meta
+          property="og:image"
+          content={`https://api.asciipunks.com/punks/${id}/preview`}
         />
       </Helmet>
       <Card className={s.card}>
