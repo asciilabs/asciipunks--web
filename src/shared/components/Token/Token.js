@@ -8,7 +8,7 @@ const Token = ({ token, id, showId = true }) => (
     {showId ? (
       <div className={s.tokenId}>
         #{id}{' '}
-        <Link to={`/punks/${id}`} target="_blank">
+        <Link className={s.link} to={`/punks/${id}`} target="_blank">
           <i className={cn('fas fa-external-link-alt', s.shareButton)}></i>
         </Link>
       </div>

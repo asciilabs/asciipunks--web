@@ -24,3 +24,15 @@
 .punkCount {
   padding-top: 5px;
 }
+
+.shareButton {
+  position: absolute;
+  top: 8px;
+  right: -16px;
+  font-size: 0.8em;
+  color: grey;
+}
+
+.titleContainer {
+  position: relative;
+}
