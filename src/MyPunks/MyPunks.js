@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import useContracts from '@hooks/useContracts'
+import useWeb3 from '@hooks/useWeb3'
 import Token from '@components/Token'
 import Card from '@components/Card'
 import { useParams } from 'react-router-dom'
@@ -8,6 +9,7 @@ import { useParams } from 'react-router-dom'
 import s from './MyPunks.module.css'
 
 const MyPunks = () => {
+  const { connected } = useWeb3()
   const { punksForUser } = useContracts()
   const { address } = useParams()
   const [nfts, setNfts] = useState([])
@@ -45,9 +47,11 @@ const MyPunks = () => {
           {address}
         </h2>
         <div className={s.container}>
-          {nfts.map(({ punk, id }) => (
-            <Token token={punk} id={id} key={id} />
-          ))}
+          {connected && nfts.length > 0
+            ? nfts.map(({ punk, id }) => (
+                <Token token={punk} id={id} key={id} />
+              ))
+            : "You don't have any punks yet :("}
         </div>
       </Card>
     </>
