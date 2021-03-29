@@ -39,7 +39,11 @@ const MyPunks = () => {
       </Helmet>
 
       <Card className={s.card}>
-        <h2 className={s.h2}>Punks owned by {address}</h2>
+        <h2 className={s.h2}>
+          Punks owned by
+          <br />
+          {address}
+        </h2>
         <div className={s.container}>
           {nfts.map(({ punk, id }) => (
             <Token token={punk} id={id} key={id} />
