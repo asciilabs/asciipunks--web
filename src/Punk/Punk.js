@@ -33,14 +33,15 @@ const Punk = () => {
           content={`https://api.asciipunks.com/punks/${id}/preview`}
         />
         <meta name="twitter:title" content={`ASCIIPunks — Punk #${id}`} />
+        <meta name="og:url" content={`https://asciipunks.com/punks/${id}`} />
+        <meta name="og:title" content={`ASCIIPunks — Punk #${id}`} />
         <meta
-          property="og:url"
-          content={`https://asciipunks.com/punks/${id}`}
-        />
-        <meta property="og:title" content={`ASCIIPunks — Punk #${id}`} />
-        <meta
-          property="og:image"
+          name="og:image"
           content={`https://api.asciipunks.com/punks/${id}/preview`}
+        />
+        <meta
+          property="og:description"
+          content={`Check out this ASCIIPunk — Punk #${id}`}
         />
       </Helmet>
       <Card className={s.card}>
