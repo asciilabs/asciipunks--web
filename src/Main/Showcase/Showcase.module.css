@@ -27,8 +27,8 @@
 
 .shareButton {
   position: absolute;
-  top: 8px;
-  right: -16px;
+  top: 6px;
+  right: -24px;
   font-size: 0.8em;
   color: grey;
 }
