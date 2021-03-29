@@ -33,6 +33,10 @@ const Punk = () => {
           content={`https://api.asciipunks.com/punks/${id}/preview`}
         />
         <meta name="twitter:title" content={`ASCIIPunks — Punk #${id}`} />
+        <meta
+          name="twitter:description"
+          content={`Check out this ASCIIPunk — Punk #${id}`}
+        />
         <meta name="og:url" content={`https://asciipunks.com/punks/${id}`} />
         <meta name="og:title" content={`ASCIIPunks — Punk #${id}`} />
         <meta
@@ -41,10 +45,6 @@ const Punk = () => {
         />
         <meta
           property="og:description"
-          content={`Check out this ASCIIPunk — Punk #${id}`}
-        />
-        <meta
-          name="twitter:description"
           content={`Check out this ASCIIPunk — Punk #${id}`}
         />
       </Helmet>
