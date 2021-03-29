@@ -45,8 +45,10 @@ const MintButton = () => {
     } else {
       buttonCopy = 'All AsciiPunks have been sold out!'
     }
-  } else {
+  } else if (saleStarted !== null) {
     buttonCopy = "Sale hasn't started yet! Check back later."
+  } else {
+    buttonCopy = "It appears we cannot connect to web3, please connect your wallet and refresh the page."
   }
 
   useEffect(() => {

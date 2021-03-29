@@ -14,7 +14,7 @@ const Provider = ({ children }) => {
   const [nfts, setNfts] = useState([])
   const [totalSupply, setTotalSupply] = useState(0)
   const [tokenLimit, setTokenLimit] = useState(0)
-  const [saleStarted, setSaleStarted] = useState(false)
+  const [saleStarted, setSaleStarted] = useState(null)
   const [currentPrice, setCurrentPrice] = useState('')
   const [punks, setPunks] = useState(
     new Contract(addresses.asciiPunks, abis.asciiPunks)
@@ -101,7 +101,7 @@ const Provider = ({ children }) => {
   }, [punks, walletAddress])
 
   const getSaleStarted = useCallback(async () => {
-    if (!walletAddress || !punks.signer) return false
+    if (!walletAddress || !punks.signer) return null
 
     const started = await punks.hasSaleStarted()
     return started
