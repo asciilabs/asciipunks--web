@@ -25,8 +25,6 @@ const Punk = () => {
     setOwner(await ownerOf(id))
   }, [ownerOf])
 
-  if (!punk) return null
-
   return (
     <>
       <Helmet>
