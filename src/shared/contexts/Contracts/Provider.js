@@ -164,7 +164,7 @@ const Provider = ({ children }) => {
 
   const createPunk = useCallback(
     async (seed) => {
-      await punks.createPunk(parseInt(seed), {
+      await punks.createPunk(seed, {
         value: currentPrice,
         from: walletAddress,
         gasLimit: 200000,

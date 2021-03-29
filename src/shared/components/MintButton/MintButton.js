@@ -74,6 +74,7 @@ const MintButton = () => {
         onAfterOpen={() => setSeed(Math.floor(Math.random() * 1000000000000))}
       >
         <p>What seed number would you like to use to generate your punk?</p>
+        <p className={s.warning}>Warning: Do not use decimals, the seed must be an integer</p>
         <div>
           <div className={s.row}>
             <input
@@ -85,7 +86,7 @@ const MintButton = () => {
                 setSeed((x) => {
                   if (!(e.nativeEvent.data || e.target.value)) return 0
 
-                  return parseInt(e.target.value).toString()
+                  return e.target.value.toString()
                 })
               }
             />

@@ -13,6 +13,12 @@
   border-color: var(--green);
 }
 
+.warning {
+  color: var(--mandarin);
+  font-size: 0.9em;
+  text-align: center;
+}
+
 .salePausedButton {
   background-color: var(--baby-powder);
   border-color: var(--baby-powder);
