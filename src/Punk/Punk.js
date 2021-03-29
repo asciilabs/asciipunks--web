@@ -43,6 +43,10 @@ const Punk = () => {
           property="og:description"
           content={`Check out this ASCIIPunk — Punk #${id}`}
         />
+        <meta
+          name="twitter:description"
+          content={`Check out this ASCIIPunk — Punk #${id}`}
+        />
       </Helmet>
       <Card className={s.card}>
         <h2 className={s.h2}>Punk #{id}</h2>
