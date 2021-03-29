@@ -31,7 +31,7 @@ const MyPunks = () => {
           name="og:url"
           content={`https://asciipunks.com/mypunks/${address}`}
         />
-        <meta name="og:title" content={`ASCIIPunks owned by #${address}`} />
+        <meta name="og:title" content={`ASCIIPunks owned by ${address}`} />
         <meta
           name="og:image"
           content={`https://api.asciipunks.com/mypunks/${address}/preview`}
