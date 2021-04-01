@@ -21,23 +21,25 @@
   border-bottom: 1px solid var(--grey);
   display: flex;
   height: 48px;
-  justify-content: center;
-  padding: 0 24px;
+  justify-content: space-between;
+  padding: 0 16px;
   position: relative;
 }
 
 .shareButton {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 0.8em;
   color: grey;
+  cursor: pointer;
+  font-size: 0.8em;
 }
 
 .link {
-  display: none;
+  visibility: hidden;
 }
 
 .tokenContainer:hover .link {
-  display: inline-block;
+  visibility: initial;
+}
+
+.signatureIcon {
+  color: var(--violet);
 }

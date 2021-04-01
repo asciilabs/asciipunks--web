@@ -12,7 +12,10 @@
   font-size: 1.5em;
   font-weight: bold;
   line-height: 1em;
-  margin-bottom: -16px;
+}
+
+.h2 + .h2 {
+  margin-left: 40px;
 }
 
 .h3 {
@@ -23,4 +26,42 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.editPunk {
+  flex-grow: 1;
+  margin-right: 8px;
+  line-height: 2em;
+}
+
+.saveButton {
+  border: 1px solid var(--superiority);
+  margin-top: -4px;
+  margin-bottom: 8px;
+}
+.tokenContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.tokenId {
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  margin-bottom: 32px;
+}
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.processingCopy {
+  width: 500px;
+}
+
+.okay {
+  border: 1px solid var(--superiority);
+  margin-top: 16px;
 }

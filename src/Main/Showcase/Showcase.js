@@ -12,7 +12,7 @@ import PunkCount from '../PunkCount'
 import s from './Showcase.module.css'
 
 const PunkList = ({ nfts }) =>
-  nfts.map(({ punk, id }) => <Token token={punk} id={id} key={id} />)
+  nfts.map(({ punk, id, name }) => <Token token={punk} name={name} id={id} key={id} />)
 
 const Showcase = () => {
   const { connected, walletAddress } = useWeb3()

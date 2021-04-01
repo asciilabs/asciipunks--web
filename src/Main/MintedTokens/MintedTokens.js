@@ -23,13 +23,9 @@ const MintedTokens = () => {
 
     const startingId = ids[0] != null ? ids[0] : 1
     const newIds = rangeFrom(startingId)
-    const newTokens = await fetchTokensById(newIds)
-    const zippedTokens = sortBy(
-      'id',
-      newTokens.map((token, i) => ({ token, id: newIds[i] }))
-    )
+    const tokens = await fetchTokensById(newIds)
 
-    setTokens(zippedTokens)
+    setTokens(tokens)
     if (ids[0] == null) setIds(newIds)
   }, [ids, totalSupply, fetchTokensById])
 
@@ -52,8 +48,8 @@ const MintedTokens = () => {
             })
           }}
         />
-        {tokens.map(({ token, id }) => (
-          <Token token={token} id={id} key={id} />
+        {tokens.map(({ token, id, name }) => (
+          <Token token={token} name={name} id={id} key={id} />
         ))}
         <button
           className={cn('fas fa-arrow-right', s.button, s.rightButton)}

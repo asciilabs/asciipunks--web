@@ -19,6 +19,8 @@ const Provider = ({ children }) => {
   const [punks, setPunks] = useState(
     new Contract(addresses.asciiPunks, abis.asciiPunks)
   )
+
+  const [names, setNames] = useState(new Contract(addresses.names, abis.names))
   const { wallet, walletAddress } = useWeb3()
 
   useEffect(() => {
@@ -69,6 +71,7 @@ const Provider = ({ children }) => {
   useEffect(() => {
     if (!!wallet && !punks.signer) {
       setPunks(punks.connect(wallet))
+      setNames(names.connect(wallet))
     }
   }, [wallet, setPunks, punks])
 
@@ -126,7 +129,11 @@ const Provider = ({ children }) => {
   }, [totalPunks])
 
   const fetchTokens = useCallback(async () => {
-    setNfts(await punksForUser())
+    const nfts = await punksForUser()
+    const enrichedNfts = await Promise.all(
+      nfts.map(async (nft) => ({ ...nft, name: await fetchNameById(nft.id) }))
+    )
+    setNfts(enrichedNfts)
 
     const { totalSupply, tokenLimit } = await totalPunks()
     const started = await getSaleStarted()
@@ -147,9 +154,36 @@ const Provider = ({ children }) => {
     getSaleStarted,
   ])
 
+  const fetchNameById = useCallback(
+    async (id) => {
+      if (!names?.signer) return ''
+
+      return await names.getName(id)
+    },
+    [names]
+  )
+
+  const setName = useCallback(
+    async (id, name) => {
+      if (!names?.signer) return
+
+      return await names.setName(id, name, {
+        value: 0,
+        from: walletAddress,
+        gasLimit: 200000,
+      })
+    },
+    [names]
+  )
+
   const fetchTokensById = useCallback(
     async (ids) => {
-      return Promise.all(ids.map(async (id) => punks.draw(id)))
+      const nfts = await Promise.all(
+        ids.map(async (id) => ({ id, token: await punks.draw(id) }))
+      )
+      return await Promise.all(
+        nfts.map(async (nft) => ({ ...nft, name: await fetchNameById(nft.id) }))
+      )
     },
     [punks]
   )
@@ -194,10 +228,12 @@ const Provider = ({ children }) => {
         currentPrice,
         drawPunk,
         fetchTokensById,
+        fetchNameById,
         nfts,
         ownerOf,
         punksForUser,
         saleStarted,
+        setName,
         tokenLimit,
         totalSupply,
       }}
