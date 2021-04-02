@@ -170,7 +170,6 @@ const Provider = ({ children }) => {
       return await names.setName(id, name, {
         value: 0,
         from: walletAddress,
-        gasLimit: 200000,
       })
     },
     [names]
