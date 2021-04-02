@@ -48,8 +48,8 @@ const MyPunks = () => {
         </h2>
         <div className={s.container}>
           {connected && nfts.length > 0
-            ? nfts.map(({ punk, id }) => (
-                <Token token={punk} id={id} key={id} />
+            ? nfts.map(({ punk, id, name }) => (
+                <Token token={punk} id={id} key={id} name={name} />
               ))
             : "You don't have any punks yet :("}
         </div>

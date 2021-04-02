@@ -86,7 +86,12 @@ const Provider = ({ children }) => {
         const id = (await punks.tokenOfOwnerByIndex(address, index)).toNumber()
         userPunks.push({ punk: await punks.draw(id), id })
       }
-      return userPunks
+
+      const namedPunks = await Promise.all(
+        userPunks.map(async (nft) => ({ ...nft, name: await fetchNameById(nft.id) }))
+      )
+
+      return namedPunks
     },
     [punks, walletAddress]
   )
