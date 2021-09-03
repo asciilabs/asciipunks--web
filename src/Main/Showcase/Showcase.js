@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useMemo } from 'react'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import { ContractsContext } from '@contexts/Contracts'
 import sortBy from 'lodash/fp/sortBy'
 import { Link } from 'react-router-dom'

@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '@components/Card'
 import MintButton from '@components/MintButton'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import useContracts from '@hooks/useContracts'
 import MintedTokens from './MintedTokens'
 import Showcase from './Showcase'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import Button from '@components/Button'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import addresses from '@shared/addresses'
 import ConnectButton from './ConnectButton'
 import s from './Navigation.module.css'

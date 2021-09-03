@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import abis from '@abis'
 import cn from 'classnames'
 import useInterval from '@use-it/interval'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import { Contract } from 'ethers'
 
 import s from '@components/Button/NotificationButton.module.css'

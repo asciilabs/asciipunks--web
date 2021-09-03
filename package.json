@@ -32,6 +32,7 @@
     "classnames": "^2.2.6",
     "core-js": "^3.9.1",
     "css-loader": "^5.1.3",
+    "eth-react": "0.1.0",
     "ethers": "^5.0.32",
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
@@ -56,5 +57,8 @@
   "devDependencies": {
     "dotenv-webpack": "^7.0.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "resolutions": {
+    "react": "^17.0.1"
   }
 }

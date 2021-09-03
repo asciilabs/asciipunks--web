@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import Button from '@components/Button'
 import s from './LinkWalletButton.module.css'
 

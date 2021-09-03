@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import useContracts from '@hooks/useContracts'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import Token from '@components/Token'
 import Card from '@components/Card'
 import { useParams } from 'react-router-dom'

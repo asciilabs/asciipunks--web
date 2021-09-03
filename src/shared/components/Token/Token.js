@@ -12,7 +12,7 @@ const Token = ({ token, name, id, showId = true }) => (
         {name && showId ? (
           <>
             <i
-              class="fas fa-signature"
+              className="fas fa-signature"
               data-tip={name}
               className={cn('fas fa-signature', s.signatureIcon)}
             ></i>

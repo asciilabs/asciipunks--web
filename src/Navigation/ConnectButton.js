@@ -1,5 +1,5 @@
 import React from 'react'
-import useWeb3 from '@hooks/useWeb3'
+import { useWeb3 } from 'eth-react'
 import Button from '@components/Button'
 import s from './Navigation.module.css'
 

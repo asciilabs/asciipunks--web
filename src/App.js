@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Web3Provider } from "@contexts/Web3";
+import { Provider as Web3Provider } from "eth-react";
 import { ContractsProvider } from "@contexts/Contracts";
 import 'noty/lib/noty.css'
 import './noty-theme.css'
