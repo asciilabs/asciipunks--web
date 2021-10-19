@@ -5,7 +5,7 @@
 ## Install
 
 ```
-git clone git@github.com:keyboard-clacker/asciipunks--web
+git clone git@github.com:asciipunks/asciipunks--web
 cd asciipunks--web
 npm install
 npm start
